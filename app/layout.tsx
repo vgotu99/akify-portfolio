@@ -1,4 +1,4 @@
-import '@/app/style/global.css';
+import '@/src/app/style/global.css';
 import { poppins, pretendard } from '@/src/app/style/fonts';
 
 export default function RootLayout({

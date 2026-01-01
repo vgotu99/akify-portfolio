@@ -1,11 +1,12 @@
 import { defineTextStyles } from '@pandacss/dev';
 import { fonts } from '@/src/shared/tokens/primitives/fonts';
 
-const semanticDesktopTextStyles = {
+const semanticDesktopFonts = {
   headline: {
     xlarge: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['8XL'],
         lineHeight: fonts.lineHeight['8XL'],
         letterSpacing: fonts.size['8XL'] * fonts.letterSpacing.tight,
@@ -13,7 +14,8 @@ const semanticDesktopTextStyles = {
     },
     mediumEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsBold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['5XL'],
         lineHeight: fonts.lineHeight['5XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -21,7 +23,8 @@ const semanticDesktopTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['5XL'],
         lineHeight: fonts.lineHeight['5XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -32,7 +35,8 @@ const semanticDesktopTextStyles = {
   title: {
     xlargeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsBold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['5XL'],
         lineHeight: fonts.lineHeight['5XL'],
         letterSpacing: fonts.size['5XL'] * fonts.letterSpacing.tight,
@@ -40,7 +44,8 @@ const semanticDesktopTextStyles = {
     },
     xlarge: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['5XL'],
         lineHeight: fonts.lineHeight['5XL'],
         letterSpacing: fonts.size['5XL'] * fonts.letterSpacing.tight,
@@ -48,7 +53,8 @@ const semanticDesktopTextStyles = {
     },
     largeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['4XL'],
         lineHeight: fonts.lineHeight['4XL'],
         letterSpacing: fonts.size['4XL'] * fonts.letterSpacing.tight,
@@ -56,7 +62,8 @@ const semanticDesktopTextStyles = {
     },
     large: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['4XL'],
         lineHeight: fonts.lineHeight['4XL'],
         letterSpacing: fonts.size['4XL'] * fonts.letterSpacing.tight,
@@ -64,7 +71,8 @@ const semanticDesktopTextStyles = {
     },
     mediumEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['2XL'],
         lineHeight: fonts.lineHeight['2XL'],
         letterSpacing: fonts.size['2XL'] * fonts.letterSpacing.tight,
@@ -72,7 +80,8 @@ const semanticDesktopTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['2XL'],
         lineHeight: fonts.lineHeight['2XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -80,7 +89,8 @@ const semanticDesktopTextStyles = {
     },
     smallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.XL,
         lineHeight: fonts.lineHeight.XL,
         letterSpacing: fonts.letterSpacing.none,
@@ -88,7 +98,8 @@ const semanticDesktopTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.XL,
         lineHeight: fonts.lineHeight.XL,
         letterSpacing: fonts.letterSpacing.none,
@@ -96,7 +107,8 @@ const semanticDesktopTextStyles = {
     },
     smallStrong: {
       value: {
-        fontFamily: fonts.family.extrabold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.extrabold,
         fontSize: fonts.size.XL,
         lineHeight: fonts.lineHeight.XL,
         letterSpacing: fonts.letterSpacing.none,
@@ -107,7 +119,8 @@ const semanticDesktopTextStyles = {
   label: {
     mediumEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.LG,
         lineHeight: fonts.lineHeight.LG,
         letterSpacing: fonts.letterSpacing.none,
@@ -115,7 +128,8 @@ const semanticDesktopTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.LG,
         lineHeight: fonts.lineHeight.LG,
         letterSpacing: fonts.letterSpacing.none,
@@ -123,7 +137,8 @@ const semanticDesktopTextStyles = {
     },
     smallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -131,7 +146,8 @@ const semanticDesktopTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -139,7 +155,8 @@ const semanticDesktopTextStyles = {
     },
     xsmallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.SM,
         lineHeight: fonts.lineHeight.SM,
         letterSpacing: fonts.letterSpacing.none,
@@ -147,7 +164,8 @@ const semanticDesktopTextStyles = {
     },
     xsmall: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.SM,
         lineHeight: fonts.lineHeight.SM,
         letterSpacing: fonts.letterSpacing.none,
@@ -155,7 +173,8 @@ const semanticDesktopTextStyles = {
     },
     xxsmallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsMedium,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.size.XS * fonts.letterSpacing.tight,
@@ -163,7 +182,8 @@ const semanticDesktopTextStyles = {
     },
     xxsmall: {
       value: {
-        fontFamily: fonts.family.medium,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.size.XS * fonts.letterSpacing.tight,
@@ -174,7 +194,8 @@ const semanticDesktopTextStyles = {
   body: {
     largeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsRegular,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.XL,
         lineHeight: fonts.lineHeight.XL,
         letterSpacing: fonts.letterSpacing.none,
@@ -182,7 +203,8 @@ const semanticDesktopTextStyles = {
     },
     large: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.XL,
         lineHeight: fonts.lineHeight.XL,
         letterSpacing: fonts.letterSpacing.none,
@@ -190,7 +212,8 @@ const semanticDesktopTextStyles = {
     },
     mediumEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsRegular,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.LG,
         lineHeight: fonts.lineHeight.LG,
         letterSpacing: fonts.letterSpacing.none,
@@ -198,7 +221,8 @@ const semanticDesktopTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.LG,
         lineHeight: fonts.lineHeight.LG,
         letterSpacing: fonts.letterSpacing.none,
@@ -206,7 +230,8 @@ const semanticDesktopTextStyles = {
     },
     smallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsRegular,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -214,7 +239,8 @@ const semanticDesktopTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -222,7 +248,8 @@ const semanticDesktopTextStyles = {
     },
     xsmallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsRegular,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.size.XS * fonts.letterSpacing.xtight,
@@ -230,7 +257,8 @@ const semanticDesktopTextStyles = {
     },
     xsmall: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.letterSpacing.none,
@@ -241,7 +269,8 @@ const semanticDesktopTextStyles = {
   caption: {
     medium: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size['2XS'],
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -249,7 +278,8 @@ const semanticDesktopTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size['3XS'],
         lineHeight: fonts.lineHeight['3XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -258,11 +288,12 @@ const semanticDesktopTextStyles = {
   },
 };
 
-const semanticMobileTextStyles = {
+const semanticMobileFonts = {
   headline: {
     xxlargeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['6XL'],
         lineHeight: fonts.lineHeight['6XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -270,7 +301,8 @@ const semanticMobileTextStyles = {
     },
     xxlarge: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['6XL'],
         lineHeight: fonts.lineHeight['6XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -278,7 +310,8 @@ const semanticMobileTextStyles = {
     },
     xlargeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['5XL'],
         lineHeight: fonts.lineHeight['5XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -286,7 +319,8 @@ const semanticMobileTextStyles = {
     },
     xlarge: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['5XL'],
         lineHeight: fonts.lineHeight['5XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -294,7 +328,8 @@ const semanticMobileTextStyles = {
     },
     large: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['4XL'],
         lineHeight: fonts.lineHeight['4XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -302,7 +337,8 @@ const semanticMobileTextStyles = {
     },
     mediumEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsBold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['3XL'],
         lineHeight: fonts.lineHeight['3XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -310,7 +346,8 @@ const semanticMobileTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['3XL'],
         lineHeight: fonts.lineHeight['3XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -318,7 +355,8 @@ const semanticMobileTextStyles = {
     },
     mediumLight: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size['3XL'],
         lineHeight: fonts.lineHeight['3XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -329,7 +367,8 @@ const semanticMobileTextStyles = {
   title: {
     largeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsBold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['2XL'],
         lineHeight: fonts.lineHeight['2XL'],
         letterSpacing: fonts.size['2XL'] * fonts.letterSpacing.tight,
@@ -337,7 +376,8 @@ const semanticMobileTextStyles = {
     },
     large: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size['2XL'],
         lineHeight: fonts.lineHeight['2XL'],
         letterSpacing: fonts.letterSpacing.none,
@@ -345,7 +385,8 @@ const semanticMobileTextStyles = {
     },
     mediumEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.XL,
         lineHeight: fonts.lineHeight.XL,
         letterSpacing: fonts.letterSpacing.none,
@@ -353,7 +394,8 @@ const semanticMobileTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.XL,
         lineHeight: fonts.lineHeight.XL,
         letterSpacing: fonts.letterSpacing.none,
@@ -361,7 +403,8 @@ const semanticMobileTextStyles = {
     },
     smallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -369,7 +412,8 @@ const semanticMobileTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -377,7 +421,8 @@ const semanticMobileTextStyles = {
     },
     smallStrong: {
       value: {
-        fontFamily: fonts.family.extrabold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.extrabold,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -385,7 +430,8 @@ const semanticMobileTextStyles = {
     },
     xsmallEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -393,7 +439,8 @@ const semanticMobileTextStyles = {
     },
     xsmallEnglishUnderline: {
       value: {
-        fontFamily: fonts.family.poppinsSemibold,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -402,7 +449,8 @@ const semanticMobileTextStyles = {
     },
     xsmall: {
       value: {
-        fontFamily: fonts.family.bold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.bold,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -410,7 +458,8 @@ const semanticMobileTextStyles = {
     },
     xsmallLight: {
       value: {
-        fontFamily: fonts.family.medium,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -421,7 +470,8 @@ const semanticMobileTextStyles = {
   label: {
     large: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.LG,
         lineHeight: fonts.lineHeight.LG,
         letterSpacing: fonts.letterSpacing.none,
@@ -429,7 +479,8 @@ const semanticMobileTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -437,7 +488,8 @@ const semanticMobileTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.medium,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size.SM,
         lineHeight: fonts.lineHeight.SM,
         letterSpacing: fonts.letterSpacing.none,
@@ -445,7 +497,8 @@ const semanticMobileTextStyles = {
     },
     xsmall: {
       value: {
-        fontFamily: fonts.family.medium,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.letterSpacing.none,
@@ -453,7 +506,8 @@ const semanticMobileTextStyles = {
     },
     xsmallUnderline: {
       value: {
-        fontFamily: fonts.family.medium,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.letterSpacing.none,
@@ -462,7 +516,8 @@ const semanticMobileTextStyles = {
     },
     xxsmall: {
       value: {
-        fontFamily: fonts.family.medium,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size['2XS'],
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -470,7 +525,8 @@ const semanticMobileTextStyles = {
     },
     xxxsmall: {
       value: {
-        fontFamily: fonts.family.medium,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.medium,
         fontSize: fonts.size['3XS'],
         lineHeight: fonts.lineHeight['3XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -480,7 +536,8 @@ const semanticMobileTextStyles = {
   body: {
     xlargeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsRegular,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.LG,
         lineHeight: fonts.lineHeight.LG,
         letterSpacing: fonts.letterSpacing.none,
@@ -488,7 +545,8 @@ const semanticMobileTextStyles = {
     },
     xlarge: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.LG,
         lineHeight: fonts.lineHeight.LG,
         letterSpacing: fonts.letterSpacing.none,
@@ -496,7 +554,8 @@ const semanticMobileTextStyles = {
     },
     large: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -504,7 +563,8 @@ const semanticMobileTextStyles = {
     },
     largeStrong: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.MD,
         lineHeight: fonts.lineHeight.MD,
         letterSpacing: fonts.letterSpacing.none,
@@ -512,7 +572,8 @@ const semanticMobileTextStyles = {
     },
     mediumEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsRegular,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.SM,
         lineHeight: fonts.lineHeight.SM,
         letterSpacing: fonts.letterSpacing.none,
@@ -520,7 +581,8 @@ const semanticMobileTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.SM,
         lineHeight: fonts.lineHeight.SM,
         letterSpacing: fonts.letterSpacing.none,
@@ -528,7 +590,8 @@ const semanticMobileTextStyles = {
     },
     mediumStrong: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.SM,
         lineHeight: fonts.lineHeight.SM,
         letterSpacing: fonts.letterSpacing.none,
@@ -536,7 +599,8 @@ const semanticMobileTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.letterSpacing.none,
@@ -544,7 +608,8 @@ const semanticMobileTextStyles = {
     },
     smallStrong: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size.XS,
         lineHeight: fonts.lineHeight.XS,
         letterSpacing: fonts.letterSpacing.none,
@@ -554,7 +619,8 @@ const semanticMobileTextStyles = {
   caption: {
     largeEnglish: {
       value: {
-        fontFamily: fonts.family.poppinsRegular,
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size['2XS'],
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.size['2XS'] * fonts.letterSpacing.xtight,
@@ -562,7 +628,8 @@ const semanticMobileTextStyles = {
     },
     large: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size['2XS'],
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -570,7 +637,8 @@ const semanticMobileTextStyles = {
     },
     largeStrong: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['2XS'],
         lineHeight: fonts.lineHeight['2XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -578,7 +646,8 @@ const semanticMobileTextStyles = {
     },
     medium: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size['3XS'],
         lineHeight: fonts.lineHeight['3XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -586,7 +655,8 @@ const semanticMobileTextStyles = {
     },
     mediumStrong: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['3XS'],
         lineHeight: fonts.lineHeight['3XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -594,7 +664,8 @@ const semanticMobileTextStyles = {
     },
     small: {
       value: {
-        fontFamily: fonts.family.regular,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.regular,
         fontSize: fonts.size['4XS'],
         lineHeight: fonts.lineHeight['4XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -602,7 +673,8 @@ const semanticMobileTextStyles = {
     },
     smallStrong: {
       value: {
-        fontFamily: fonts.family.semibold,
+        fontFamily: fonts.family.pretendard,
+        fontWeight: fonts.weight.semibold,
         fontSize: fonts.size['4XS'],
         lineHeight: fonts.lineHeight['4XS'],
         letterSpacing: fonts.letterSpacing.none,
@@ -612,6 +684,6 @@ const semanticMobileTextStyles = {
 };
 
 export const semanticTextStyles = defineTextStyles({
-  desktop: semanticDesktopTextStyles,
-  mobile: semanticMobileTextStyles,
+  desktop: semanticDesktopFonts,
+  mobile: semanticMobileFonts,
 });

@@ -1,4 +1,10 @@
 import { defineConfig } from '@pandacss/dev';
+import { semanticColorTokens } from '@/src/shared/tokens/semantics/colors';
+import { semanticTextStyles } from '@/src/shared/tokens/semantics/fonts';
+import {
+  semanticBreakpoints,
+  semanticNumberTokens,
+} from '@/src/shared/tokens/semantics/numbers';
 
 export default defineConfig({
   // Whether to use css reset
@@ -12,7 +18,20 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      breakpoints: {
+        desktop: semanticBreakpoints.desktop,
+        tablet: semanticBreakpoints.tablet,
+        mobile: semanticBreakpoints.mobile,
+      },
+      semanticTokens: {
+        colors: semanticColorTokens,
+        radii: semanticNumberTokens.radii,
+        borderWidths: semanticNumberTokens.borderWidths,
+        spacing: semanticNumberTokens.spacing,
+      },
+      textStyles: semanticTextStyles,
+    },
   },
 
   // The output directory for your css system

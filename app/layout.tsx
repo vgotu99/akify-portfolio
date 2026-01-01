@@ -1,4 +1,5 @@
 import '@/app/style/global.css';
+import { poppins, pretendard } from '@/src/app/style/fonts';
 
 export default function RootLayout({
   children,
@@ -6,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={`${pretendard.variable} ${poppins.variable}`}>
       <body>{children}</body>
     </html>
   );

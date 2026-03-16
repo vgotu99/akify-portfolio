@@ -3,6 +3,7 @@ import BottomBar from '@/src/app/layout/bottom-bar';
 import Footer from '@/src/app/layout/footer';
 import Header from '@/src/app/layout/header';
 import { poppins, pretendard } from '@/src/app/style/fonts';
+import '@/src/features/auth/lib/interceptors';
 
 export default function RootLayout({
   children,

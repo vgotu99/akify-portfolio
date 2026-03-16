@@ -8,6 +8,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    if: github.repository == 'JAMMERING/AKIFY_WEB'
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:

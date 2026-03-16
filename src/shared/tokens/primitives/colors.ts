@@ -30,11 +30,14 @@ const colors = {
     700: '#696B6F',
     800: '#3E3F42',
     900: '#1E1E1F',
+    950: '#0A0A0A',
   },
 
   alpha: {
+    white05: 'rgba(255,255,255,0.05)',
     white10: 'rgba(255,255,255,0.1)',
     white20: 'rgba(255,255,255,0.2)',
+    white40: 'rgba(255,255,255,0.4)',
     white50: 'rgba(255,255,255,0.5)',
     white75: 'rgba(255,255,255,0.75)',
     black8: 'rgba(0,0,0,0.08)',
@@ -44,6 +47,7 @@ const colors = {
     black25: 'rgba(0,0,0,0.25)',
     black50: 'rgba(0,0,0,0.5)',
     black75: 'rgba(0,0,0,0.75)',
+    black85: 'rgba(0,0,0,0.85)',
     black90: 'rgba(0,0,0,0.9)',
   },
 

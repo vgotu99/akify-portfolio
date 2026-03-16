@@ -51,18 +51,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/biome@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/biome@npm:2.2.0"
+"@biomejs/biome@npm:^2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/biome@npm:2.3.14"
   dependencies:
-    "@biomejs/cli-darwin-arm64": 2.2.0
-    "@biomejs/cli-darwin-x64": 2.2.0
-    "@biomejs/cli-linux-arm64": 2.2.0
-    "@biomejs/cli-linux-arm64-musl": 2.2.0
-    "@biomejs/cli-linux-x64": 2.2.0
-    "@biomejs/cli-linux-x64-musl": 2.2.0
-    "@biomejs/cli-win32-arm64": 2.2.0
-    "@biomejs/cli-win32-x64": 2.2.0
+    "@biomejs/cli-darwin-arm64": 2.3.14
+    "@biomejs/cli-darwin-x64": 2.3.14
+    "@biomejs/cli-linux-arm64": 2.3.14
+    "@biomejs/cli-linux-arm64-musl": 2.3.14
+    "@biomejs/cli-linux-x64": 2.3.14
+    "@biomejs/cli-linux-x64-musl": 2.3.14
+    "@biomejs/cli-win32-arm64": 2.3.14
+    "@biomejs/cli-win32-x64": 2.3.14
   dependenciesMeta:
     "@biomejs/cli-darwin-arm64":
       optional: true
@@ -82,62 +82,62 @@ __metadata:
       optional: true
   bin:
     biome: bin/biome
-  checksum: b9bb6155370b4d31c81c60b0dadbdba519fd34ea2bd2d37b8cc2afdf85d25b2bd26f6f0966765bd8f444d930d12c0455a06cf08daab5fc033a0d3c1abcffd6c9
+  checksum: 05bc8b81e5c9f0b395e40cbcf2d0645776100fb9d10e5cebbadd9c5290fa8f05948c4bb1f685c65e9b4a9ad9d70a2320ab387a3a53d59818328a49ecb73b6cf8
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-arm64@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-darwin-arm64@npm:2.2.0"
+"@biomejs/cli-darwin-arm64@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-darwin-arm64@npm:2.3.14"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-x64@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-darwin-x64@npm:2.2.0"
+"@biomejs/cli-darwin-x64@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-darwin-x64@npm:2.3.14"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-arm64-musl@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-linux-arm64-musl@npm:2.2.0"
+"@biomejs/cli-linux-arm64-musl@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-linux-arm64-musl@npm:2.3.14"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-arm64@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-linux-arm64@npm:2.2.0"
+"@biomejs/cli-linux-arm64@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-linux-arm64@npm:2.3.14"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64-musl@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-linux-x64-musl@npm:2.2.0"
+"@biomejs/cli-linux-x64-musl@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-linux-x64-musl@npm:2.3.14"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-linux-x64@npm:2.2.0"
+"@biomejs/cli-linux-x64@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-linux-x64@npm:2.3.14"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-arm64@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-win32-arm64@npm:2.2.0"
+"@biomejs/cli-win32-arm64@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-win32-arm64@npm:2.3.14"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-x64@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@biomejs/cli-win32-x64@npm:2.2.0"
+"@biomejs/cli-win32-x64@npm:2.3.14":
+  version: 2.3.14
+  resolution: "@biomejs/cli-win32-x64@npm:2.3.14"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -1293,7 +1293,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "akify-web@workspace:."
   dependencies:
-    "@biomejs/biome": 2.2.0
+    "@biomejs/biome": ^2.3.14
     "@commitlint/cli": ^20.2.0
     "@commitlint/config-conventional": ^20.2.0
     "@pandacss/dev": ^1.7.2
@@ -1302,9 +1302,12 @@ __metadata:
     "@types/react-dom": 19.2.3
     axios: ^1.13.2
     babel-plugin-react-compiler: 1.0.0
+    embla-carousel-autoplay: ^8.6.0
+    embla-carousel-react: ^8.6.0
     lefthook: ^2.0.11
     lint-staged: ^16.2.7
     next: 16.1.1
+    qrcode.react: ^4.2.0
     react: 19.2.3
     react-dom: 19.2.3
     typescript: ^5
@@ -1772,6 +1775,43 @@ __metadata:
   version: 1.5.267
   resolution: "electron-to-chromium@npm:1.5.267"
   checksum: 923a21ea4c3f2536eb7ccf80e92d9368a2e5a13e6deccb1d94c31b5a5b4e10e722149b85db9892e9819150f1c43462692a92dc85ba0c205a4eb578e173b3ab36
+  languageName: node
+  linkType: hard
+
+"embla-carousel-autoplay@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel-autoplay@npm:8.6.0"
+  peerDependencies:
+    embla-carousel: 8.6.0
+  checksum: acb312f7c6fc8bebf13046eb89c874684f69bd6630731720f7d6e45881dfc4c8464734dd2929b1cdca0765fe449c6de310ee3da86e0e01b04cf933bf1bbaf942
+  languageName: node
+  linkType: hard
+
+"embla-carousel-react@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel-react@npm:8.6.0"
+  dependencies:
+    embla-carousel: 8.6.0
+    embla-carousel-reactive-utils: 8.6.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.1 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+  checksum: 30622c3f6bc3de5b608ab3fd82f69ec2ad86e86657c4c9d780380cf159bf5dac0170adced74aecd117c521c06fa014fe71b5fa0ec7c293921fd1cb7dff460be3
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel-reactive-utils@npm:8.6.0"
+  peerDependencies:
+    embla-carousel: 8.6.0
+  checksum: d3663addcb10a5cfecac976987f27fd58f2142ef944da9cd56568120752a71cb04d731e9c396f2e426f43be730f02145a87b88747c6902e24544a6fca9fc0141
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel@npm:8.6.0"
+  checksum: d943d225d069a8cf0b876440297dda42107e5e69006387c6bce1163b027ac5e5beba67160db818a763c7c46f2103238a097953ac3f383362f8104535cd278de1
   languageName: node
   linkType: hard
 
@@ -3201,6 +3241,15 @@ __metadata:
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
   checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
+  languageName: node
+  linkType: hard
+
+"qrcode.react@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "qrcode.react@npm:4.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: fe7f496bb3696eedf4113390c6feda386e7a5e5d69d12fcc2489c55ecec467f682dc99b0d8085afbeb8ed3962c1f7554b26225cd78b72e78416f9506abbebd5d
   languageName: node
   linkType: hard
 

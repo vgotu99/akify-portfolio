@@ -18,12 +18,11 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
+    breakpoints: {
+      desktop: semanticBreakpoints.desktop,
+      tablet: semanticBreakpoints.tablet,
+    },
     extend: {
-      breakpoints: {
-        desktop: semanticBreakpoints.desktop,
-        tablet: semanticBreakpoints.tablet,
-        mobile: semanticBreakpoints.mobile,
-      },
       semanticTokens: {
         colors: semanticColorTokens,
         radii: semanticNumberTokens.radii,

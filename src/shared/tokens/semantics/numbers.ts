@@ -58,5 +58,4 @@ export const semanticNumberTokens = defineSemanticTokens({
 export const semanticBreakpoints = {
   desktop: numbers.breakpoints.desktop,
   tablet: numbers.breakpoints.tablet,
-  mobile: numbers.breakpoints.mobile,
 };

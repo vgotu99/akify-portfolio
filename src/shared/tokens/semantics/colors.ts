@@ -81,11 +81,13 @@ export const semanticColorTokens = defineSemanticTokens({
       lightGrayPressed: { value: colors.neutral[200] },
       gray: { value: colors.neutral[200] },
       grayPressed: { value: colors.neutral[400] },
+      superDark: { value: colors.neutral[950] },
       dark: { value: colors.neutral[900] },
       darkPressed: { value: colors.neutral[800] },
       lightDark: { value: colors.neutral[800] },
       lightDarkPressed: { value: colors.neutral[700] },
 
+      alphaWhiteXxlight: { value: colors.alpha.white05 },
       alphaWhiteLight: { value: colors.alpha.white10 },
       alphaWhiteMedium: { value: colors.alpha.white50 },
       alphaWhiteStrong: { value: colors.alpha.white75 },
@@ -155,6 +157,9 @@ export const semanticColorTokens = defineSemanticTokens({
       critical: { value: colors.scale.red[400] },
       warning: { value: colors.scale.orange[500] },
       success: { value: colors.brand.primary[700] },
+      alphaOnDarkXlight: { value: colors.alpha.white10 },
+      alphaOnDarkLight: { value: colors.alpha.white20 },
+      alphaOnDarkMedium: { value: colors.alpha.white40 },
     },
 
     toast: {
@@ -205,6 +210,11 @@ export const semanticColorTokens = defineSemanticTokens({
       neutral600: { value: colors.neutral[600] },
       neutral700: { value: colors.neutral[700] },
       neutral900: { value: colors.neutral[900] },
+    },
+
+    header: {
+      stylish: { value: colors.alpha.black75 },
+      default: { value: colors.alpha.black85 },
     },
   },
 });

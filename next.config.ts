@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: process.env.IMAGE_STORAGE_URL ?? '',
       },
+      {
+        protocol: 'https',
+        hostname: process.env.ASSETS_IMAGE_STORAGE_URL ?? '',
+      },
     ],
   },
 };

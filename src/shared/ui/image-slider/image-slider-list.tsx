@@ -1,6 +1,7 @@
 import type { FormattedImages } from '@/src/shared/lib/types';
 import type { ImageSliderVariant } from '@/src/shared/ui/image-slider';
 import ImageSliderInfo from '@/src/shared/ui/image-slider/image-slider-info';
+import ImageSliderLink from '@/src/shared/ui/image-slider/image-slider-link';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
 import { cva } from '@/styled-system/css';
 
@@ -16,20 +17,22 @@ export default function ImageSliderList({
   const { sizes, aspectRatio } = VARIANT_MAP[variant];
   const isVariantDetail = variant === 'detail';
 
-  return images.map(({ src, alt, title, subtitle }, index) => (
+  return images.map(({ src, alt, title, subtitle, href }, index) => (
     <div key={src} className={styleVariant({ containerVariant: variant })}>
-      <ResponsiveImage
-        src={src}
-        alt={alt}
-        sizes={sizes}
-        aspectRatio={aspectRatio}
-        priority={index === 0}
-        quality={75}
-        className={styleVariant({ imageVariant: variant })}
-      />
-      {!isVariantDetail && (
-        <ImageSliderInfo title={title} subtitle={subtitle} />
-      )}
+      <ImageSliderLink href={href}>
+        <ResponsiveImage
+          src={src}
+          alt={alt}
+          sizes={sizes}
+          aspectRatio={aspectRatio}
+          priority={index === 0}
+          quality={75}
+          className={styleVariant({ imageVariant: variant })}
+        />
+        {!isVariantDetail && (
+          <ImageSliderInfo title={title} subtitle={subtitle} />
+        )}
+      </ImageSliderLink>
     </div>
   ));
 }

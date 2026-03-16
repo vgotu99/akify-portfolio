@@ -9,13 +9,14 @@ interface HeroBannerProps {
 
 export default function HeroBanner({ bannerListData }: HeroBannerProps) {
   const images = bannerListData.map((banner) => {
-    const { title, subtitle, imageUrl } = banner;
+    const { title, subtitle, imageUrl, href } = banner;
     const baseAlt = formatBaseAlt(title, subtitle);
     const formattedImages = formatImage(imageUrl, baseAlt);
     const formattedImagesWithInfo = {
       ...formattedImages,
       title,
       subtitle,
+      href,
     };
 
     return formattedImagesWithInfo;

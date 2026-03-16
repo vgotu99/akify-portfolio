@@ -7,6 +7,7 @@ export type FormattedImages = Array<{
   alt: string;
   title?: string;
   subtitle?: string;
+  href?: string;
 }>;
 
 export interface BaseApiResponse<T> {

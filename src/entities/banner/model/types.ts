@@ -15,6 +15,7 @@ export interface Banner {
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
+  href: string; // 📌 임시
 }
 
 type ActionType = 'REMOTE_PAGE' | 'IN_APP' | 'WEBVIEW' | 'EXTERNAL';

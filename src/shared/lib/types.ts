@@ -3,12 +3,17 @@ export type WithChildren<T = Record<string, unknown>> = T & {
 };
 
 export type FormattedImages = Array<{
-  src: string;
+  src: string | ImageSrc;
   alt: string;
   title?: string;
   subtitle?: string;
   href?: string;
 }>;
+
+export interface ImageSrc {
+  mobile: string;
+  desktop: string;
+}
 
 export interface BaseApiResponse<T> {
   status: number;

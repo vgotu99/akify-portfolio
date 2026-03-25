@@ -1,3 +1,5 @@
+import type { ImageSrc } from '@/src/shared/lib/types';
+
 export const formatBaseAlt = (brandName: string, modelName: string): string => {
   return `${brandName}-${modelName}`;
 };
@@ -9,7 +11,7 @@ export const formatImages = (images: Array<string>, baseAlt: string) => {
   }));
 };
 
-export const formatImage = (image: string, baseAlt: string) => {
+export const formatImage = (image: string | ImageSrc, baseAlt: string) => {
   return {
     src: image,
     alt: `${baseAlt}`,

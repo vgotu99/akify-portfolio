@@ -5,7 +5,7 @@ export default function Seperator() {
     <hr
       className={css({
         marginY: '8',
-        borderTopWidth: 'medium',
+        borderTopWidth: 'xlight',
         borderTopColor: 'colors.border.medium',
       })}
     />

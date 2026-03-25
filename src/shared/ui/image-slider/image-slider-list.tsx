@@ -54,9 +54,7 @@ const styleVariant = cva({
   },
   variants: {
     imageVariant: {
-      detail: {
-        borderRadius: [, 'lg'],
-      },
+      detail: {},
       hero: {
         borderWidth: [, 'xlight'],
         borderColor: [, 'colors.border.alphaOnDarkLight'],

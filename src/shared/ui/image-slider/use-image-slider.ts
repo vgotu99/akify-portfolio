@@ -14,7 +14,7 @@ export const useImageSlider = ({ variant, length }: UseImageSliderProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: !isVariantDetail, align: 'center' },
+    { loop: true, align: 'center' },
     !isVariantDetail
       ? [
           Autoplay({

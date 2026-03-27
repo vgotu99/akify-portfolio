@@ -28,6 +28,7 @@ export const useImageSlider = ({ variant, length }: UseImageSliderProps) => {
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
+
     setCurrentIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
@@ -50,12 +51,17 @@ export const useImageSlider = ({ variant, length }: UseImageSliderProps) => {
     onInit();
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
+
+    return () => {
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
+    };
   }, [emblaApi, onSelect, onInit]);
 
-  const showBadge = isVariantDetail && length > 1;
-  const showPrevButton = isVariantDetail && length > 1 && currentIndex > 0;
-  const showNextButton =
-    isVariantDetail && length > 1 && currentIndex < length - 1;
+  const showDetailMeta = isVariantDetail && length > 1;
+  const showBadge = showDetailMeta;
+  const showPrevButton = showDetailMeta;
+  const showNextButton = showDetailMeta;
   const showIndicator = !isVariantDetail && length > 1;
 
   return {

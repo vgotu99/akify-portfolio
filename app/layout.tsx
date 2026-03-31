@@ -4,6 +4,7 @@ import BottomBar from '@/src/app/layout/bottom-bar';
 import Footer from '@/src/app/layout/footer';
 import Header from '@/src/app/layout/header';
 import { poppins, pretendard } from '@/src/app/style/fonts';
+import ChannelTalkProvider from '@/src/shared/ui/channel-talk-provider';
 import '@/src/features/auth/lib/interceptors';
 
 export const metadata: Metadata = {
@@ -43,6 +44,7 @@ export default function RootLayout({
         {modal}
         <Footer />
         <BottomBar />
+        <ChannelTalkProvider />
       </body>
     </html>
   );

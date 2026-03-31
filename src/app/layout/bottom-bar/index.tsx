@@ -1,5 +1,5 @@
-import BottomBarButton from '@/src/app/layout/bottom-bar/bottom-bar-button';
 import BottomBarIconController from '@/src/app/layout/bottom-bar/bottom-bar-icon-controller';
+import BottomBarButton from '@/src/features/download/ui/bottom-bar-button';
 import AppIcon from '@/src/shared/ui/app-icon';
 import IconUpload from '@/src/shared/ui/icons/icon-upload';
 import { css } from '@/styled-system/css';

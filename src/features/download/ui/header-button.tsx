@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useDownload } from '@/src/shared/lib/use-download';
+import { useDownload } from '@/src/features/download/model/hooks';
 import IconDownload from '@/src/shared/ui/icons/icon-download';
 import { css } from '@/styled-system/css';
 

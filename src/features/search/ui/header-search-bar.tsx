@@ -16,9 +16,10 @@ export default function HeaderSearchBar({
           position: 'relative',
           flex: 1,
           paddingX: '12',
-          paddingY: ['7', '3'],
-          borderWidth: ['none', 'xlight'],
-          borderColor: [, 'colors.border.alphaOnDarkXlight'],
+          paddingY: ['7', '5'],
+          outlineStyle: ['none', 'solid'],
+          outlineWidth: 'xlight',
+          outlineColor: 'colors.border.alphaOnDarkXlight',
           borderRadius: 'lg',
           background: [
             'colors.surface.lightGray',
@@ -72,11 +73,11 @@ const styleVariant = cva({
   variants: {
     variant: {
       mobile: {
-        display: ['block', 'none'],
+        display: ['flex', 'none'],
         visibility: ['visible', 'hidden'],
       },
       desktop: {
-        display: ['none', 'block'],
+        display: ['none', 'flex'],
         visibility: ['hidden', 'visible'],
       },
     },

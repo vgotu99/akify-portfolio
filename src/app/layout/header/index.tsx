@@ -7,7 +7,6 @@ import HeaderUnifiedSuggestionsMenu from '@/src/features/search/ui/header-unifie
 import MobileSearchButton from '@/src/features/search/ui/mobile-search-button';
 import MobileSearchOverlay from '@/src/features/search/ui/mobile-search-overlay';
 import IconMenu2 from '@/src/shared/ui/icons/icon-menu2';
-import IconSearch from '@/src/shared/ui/icons/icon-search';
 import Logo from '@/src/shared/ui/logo';
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
@@ -35,11 +34,11 @@ export default function Header() {
               width: ['full', '640px'],
               paddingLeft: ['16', '20'],
               paddingRight: ['16', '8'],
-              paddingY: ['10', '9px'],
+              paddingY: ['10', '8'],
               gap: [, '16'],
-
-              borderWidth: ['none', 'xlight'],
-              borderColor: 'colors.border.alphaOnDarkLight',
+              outlineStyle: ['none', 'solid'],
+              outlineWidth: 'xlight',
+              outlineColor: 'colors.border.alphaOnDarkLight',
               borderRadius: ['none', 'full'],
               background: ['colors.header.default', 'colors.header.stylish'],
               marginX: ['none', 'auto'],

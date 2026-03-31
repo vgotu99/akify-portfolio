@@ -20,8 +20,8 @@ export default function Header() {
             flexDirection: 'column',
             alignItems: 'center',
             width: 'full',
-            position: [, 'fixed'],
-            top: '24px',
+            position: 'fixed',
+            top: ['0', '24px'],
             zIndex: 10,
             pointerEvents: 'none',
           })}

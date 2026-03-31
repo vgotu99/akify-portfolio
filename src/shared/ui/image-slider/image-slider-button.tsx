@@ -2,7 +2,7 @@
 
 import IconChevronLeft from '@/src/shared/ui/icons/icon-chevron-left';
 import IconChevronRight from '@/src/shared/ui/icons/icon-chevron-right';
-import { cva } from '@/styled-system/css';
+import { css, cva } from '@/styled-system/css';
 
 interface ImageSliderButtonProps {
   variant: 'detail' | 'hero';
@@ -20,7 +20,11 @@ export default function ImageSliderButton({
 
   return (
     <div className={styleVariant({ variant, type })}>
-      <button type="button" onClick={onClick}>
+      <button
+        type="button"
+        onClick={onClick}
+        className={css({ pointerEvents: 'auto' })}
+      >
         <IconComponent size={isVariantDetail ? 28 : 20} />
       </button>
     </div>
@@ -36,6 +40,7 @@ const styleVariant = cva({
   base: {
     display: 'flex',
     alignItems: 'center',
+    pointerEvents: 'none',
   },
   variants: {
     variant: {

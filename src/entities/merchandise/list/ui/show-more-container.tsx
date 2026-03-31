@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import InfiniteMerchandiseList from '@/src/entities/merchandise/list/ui/infinite-merchandise-list';
 import ShowMoreButton from '@/src/entities/merchandise/list/ui/show-more-button';
+import SuspensedInfiniteMerchandiseList from '@/src/entities/merchandise/list/ui/suspensed-infinite-merchandise-list';
 import { flex } from '@/styled-system/patterns';
 
 export default function ShowMoreContainer() {
@@ -24,5 +24,5 @@ export default function ShowMoreContainer() {
       </div>
     );
 
-  return <InfiniteMerchandiseList />;
+  return <SuspensedInfiniteMerchandiseList />;
 }

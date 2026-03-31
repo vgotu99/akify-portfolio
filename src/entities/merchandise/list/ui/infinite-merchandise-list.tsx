@@ -1,30 +1,19 @@
 'use client';
 
-import { useInfiniteMerchandise } from '@/src/entities/merchandise/list/model/hooks';
+import { use } from 'react';
+import type { MerchandiseListPosts } from '@/src/entities/merchandise/list/model/types';
 import MerchandiseCardVertical from '@/src/entities/merchandise/list/ui/merchandise-card-vertical';
-import { flex } from '@/styled-system/patterns';
 
-export default function InfiniteMerchandiseList() {
-  const { posts, hasMore, sentinelRef } = useInfiniteMerchandise();
+interface InfiniteMerchandiseListProps {
+  promisedPostPage: Promise<MerchandiseListPosts>;
+}
 
-  return (
-    <>
-      {posts.map((post) => (
-        <MerchandiseCardVertical key={post.id} merchandise={post} />
-      ))}
+export default function InfiniteMerchandiseList({
+  promisedPostPage,
+}: InfiniteMerchandiseListProps) {
+  const postPage = use(promisedPostPage);
 
-      {hasMore && (
-        <div
-          ref={sentinelRef}
-          className={flex({
-            justifyContent: 'center',
-            width: 'full',
-            gridColumn: '1 / -1',
-            paddingY: '8',
-            minHeight: '200px',
-          })}
-        />
-      )}
-    </>
-  );
+  return postPage.map((post) => (
+    <MerchandiseCardVertical key={post.id} merchandise={post} />
+  ));
 }

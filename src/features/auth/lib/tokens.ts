@@ -29,7 +29,7 @@ export const setAuthTokens = (
   cookieStore.set({
     name: 'accessToken',
     value: accessToken,
-    maxAge: 5 * 60 - 10,
+    maxAge: 8 * 60 * 60 - 10,
     ...cookieOptions,
   });
 

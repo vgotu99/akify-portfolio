@@ -1,4 +1,4 @@
-import type { BaseApiResponse } from '@/src/shared/lib/types';
+import type { BaseApiResponse, ImageSrc } from '@/src/shared/lib/types';
 
 export type BannerListResponse = BaseApiResponse<BannerListData>;
 
@@ -6,7 +6,7 @@ export type BannerListData = Array<Banner>;
 
 export interface Banner {
   id: string;
-  imageUrl: string;
+  imageUrl: ImageSrc;
   title: string;
   subtitle: string;
   order: number;

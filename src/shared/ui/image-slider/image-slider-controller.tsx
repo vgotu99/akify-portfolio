@@ -79,6 +79,7 @@ const styleVariant = cva({
     containerVariant: {
       detail: {
         height: [, , '524px'],
+        borderRadius: [, 'lg'],
       },
       hero: {},
     },

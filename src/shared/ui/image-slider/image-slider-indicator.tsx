@@ -29,10 +29,7 @@ export default function ImageSliderIndicator({
       })}
     >
       <ImageSliderButton variant="hero" type="prev" onClick={onClickPrev} />
-      <ImageSliderIndicatorBar
-        currentIndex={currentIndex + 1}
-        length={length}
-      />
+      <ImageSliderIndicatorBar currentIndex={currentIndex} length={length} />
       <ImageSliderButton variant="hero" type="next" onClick={onClickNext} />
     </div>
   );

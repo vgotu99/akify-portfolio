@@ -1,31 +1,38 @@
-import { useCallback, useEffectEvent, useState, useTransition } from 'react';
+import { useCallback, useEffectEvent, useState } from 'react';
 import { fetchMoreMerchandiseAction } from '@/src/entities/merchandise/list/model/actions';
 import type { MerchandiseListPosts } from '@/src/entities/merchandise/list/model/types';
 
 export const useInfiniteMerchandise = () => {
-  const [posts, setPosts] = useState<MerchandiseListPosts>([]);
+  const [promisedPostPages, setPromisedPostPages] = useState<
+    Promise<MerchandiseListPosts>[]
+  >([]);
   const [hasMore, setHasMore] = useState(true);
-  const [page, setPage] = useState(0);
-  const [isPending, startTransition] = useTransition();
+  const [pageCount, setPageCount] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
 
-  const handleIntersection = useEffectEvent(async () => {
-    if (isPending || !hasMore) return;
-
-    startTransition(async () => {
-      try {
-        const nextPage = page + 1;
-        const newPosts = await fetchMoreMerchandiseAction(nextPage);
-
-        if (newPosts.length === 0) {
-          setHasMore(false);
-        } else {
-          setPosts((prev) => [...prev, ...newPosts]);
-          setPage(nextPage);
-        }
-      } catch (error) {
-        console.error('Failed to load more posts:', error);
+  const fetchNextPage = useCallback(async (nextPage: number) => {
+    try {
+      const newPosts = await fetchMoreMerchandiseAction(nextPage);
+      if (newPosts.length === 0) {
+        setHasMore(false);
       }
-    });
+
+      setPageCount(nextPage);
+
+      return newPosts;
+    } finally {
+      setIsFetching(false);
+    }
+  }, []);
+
+  const handleIntersection = useEffectEvent(() => {
+    if (isFetching || !hasMore) return;
+
+    setIsFetching(true);
+    const nextPage = pageCount + 1;
+    const promise = fetchNextPage(nextPage);
+
+    setPromisedPostPages((prev) => [...prev, promise]);
   });
 
   const sentinelRef = useCallback((node: HTMLDivElement | null) => {
@@ -37,7 +44,7 @@ export const useInfiniteMerchandise = () => {
           handleIntersection();
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0, rootMargin: '500px' },
     );
 
     observer.observe(node);
@@ -46,7 +53,7 @@ export const useInfiniteMerchandise = () => {
   }, []);
 
   return {
-    posts,
+    promisedPostPages,
     hasMore,
     sentinelRef,
   };

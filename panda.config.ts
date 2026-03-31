@@ -24,6 +24,11 @@ export default defineConfig({
     },
     extend: {
       semanticTokens: {
+        animations: {
+          'custom-pulse': {
+            value: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+        },
         colors: semanticColorTokens,
         radii: semanticNumberTokens.radii,
         borderWidths: semanticNumberTokens.borderWidths,

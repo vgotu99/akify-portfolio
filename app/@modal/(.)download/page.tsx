@@ -62,7 +62,7 @@ export default async function InterceptedDownload({
           </div>
         </div>
         <QRCodeSVG
-          value={`http://localhost:3000/download?target=${target}`} // 📌 url 변경 필요
+          value={`https://web.akify.io/download?target=${target}`}
           size={210}
           level="H"
         />

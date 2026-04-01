@@ -2,7 +2,7 @@ import {
   calculateRelativeTime,
   formatNumberWithComma,
 } from '@/src/entities/merchandise/shared/lib/formats';
-import IconArrowUp from '@/src/shared/ui/icons/icon-arrow-up';
+import IconCircleArrowUp from '@/src/shared/ui/icons/icon-circle-arrow-up';
 import IconClock from '@/src/shared/ui/icons/icon-clock';
 import IconEye from '@/src/shared/ui/icons/icon-eye';
 import IconHeart from '@/src/shared/ui/icons/icon-heart';
@@ -51,7 +51,7 @@ const COUNT_ITEM_ICONS = {
   like: IconHeart,
   view: IconEye,
   time: IconClock,
-  bump: IconArrowUp,
+  bump: IconCircleArrowUp,
 };
 
 const styleVariant = cva({

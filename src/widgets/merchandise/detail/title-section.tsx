@@ -4,6 +4,7 @@ import PriceContainer from '@/src/entities/merchandise/detail/ui/price-container
 import BrandName from '@/src/entities/merchandise/shared/ui/brand-name';
 import CountItem from '@/src/entities/merchandise/shared/ui/count-item';
 import CountItemGroup from '@/src/entities/merchandise/shared/ui/count-item-group';
+import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
@@ -35,18 +36,11 @@ export default function TitleSection({ merchandiseDetail }: TitleSectionProps) {
           value={merchandiseDetail.data.viewCount}
           icon="view"
         />
-        <CountItem
+        <MerchandiseTimeDisplay
           variant="detail"
-          value={merchandiseDetail.data.createdAt}
-          icon="time"
+          createdAt={merchandiseDetail.data.createdAt}
+          bumpedAt={merchandiseDetail.data.bumpedAt}
         />
-        {merchandiseDetail.data.bumpedAt && (
-          <CountItem
-            variant="detail"
-            value={merchandiseDetail.data.bumpedAt}
-            icon="bump"
-          />
-        )}
       </CountItemGroup>
       <PriceContainer
         price={merchandiseDetail.data.price}

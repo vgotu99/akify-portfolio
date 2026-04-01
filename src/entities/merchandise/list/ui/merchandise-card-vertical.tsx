@@ -5,6 +5,7 @@ import BrandName from '@/src/entities/merchandise/shared/ui/brand-name';
 import CountItem from '@/src/entities/merchandise/shared/ui/count-item';
 import CountItemGroup from '@/src/entities/merchandise/shared/ui/count-item-group';
 import MerchandisePrice from '@/src/entities/merchandise/shared/ui/merchandise-price';
+import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
 import { css } from '@/styled-system/css';
@@ -64,7 +65,11 @@ export default function MerchandiseCardVertical({
         />
         <CountItemGroup>
           <CountItem variant="list" icon="like" value={merchandise.likeCount} />
-          <CountItem variant="list" icon="time" value={merchandise.createdAt} />
+          <MerchandiseTimeDisplay
+            variant="list"
+            createdAt={merchandise.createdAt}
+            bumpedAt={merchandise.bumpedAt}
+          />
         </CountItemGroup>
       </div>
     </Link>

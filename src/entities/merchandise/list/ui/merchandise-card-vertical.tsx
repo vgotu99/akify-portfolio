@@ -8,7 +8,7 @@ import MerchandisePrice from '@/src/entities/merchandise/shared/ui/merchandise-p
 import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
-import { css } from '@/styled-system/css';
+import { css, cx } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 interface MerchandiseCardVerticalProps {
@@ -21,11 +21,18 @@ export default function MerchandiseCardVertical({
   return (
     <Link
       href={`/merchandise/${merchandise.id}`}
-      className={css({
-        width: 'full',
-        maxWidth: '216px',
-        margin: '0 auto',
-      })}
+      className={cx(
+        'group',
+        css({
+          width: 'full',
+          maxWidth: '216px',
+          margin: '0 auto',
+          transition: 'transform 0.2s ease-in-out',
+          _hover: {
+            transform: 'scale(0.95)',
+          },
+        }),
+      )}
     >
       <div
         className={flex({
@@ -47,6 +54,10 @@ export default function MerchandiseCardVertical({
             borderRadius: ['sm', 'md'],
             overflow: 'hidden',
             backgroundColor: 'colors.surface.lightGray',
+            transition: 'filter 0.2s ease-in-out',
+            _groupHover: {
+              filter: 'brightness(0.75)',
+            },
           })}
         />
         <div>

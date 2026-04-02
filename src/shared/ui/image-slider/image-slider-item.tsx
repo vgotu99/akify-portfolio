@@ -126,7 +126,9 @@ const styleVariant = cva({
   },
   variants: {
     variant: {
-      detail: {},
+      detail: {
+        backgroundColor: 'colors.surface.lightGray',
+      },
       hero: {
         borderWidth: [, 'xlight'],
         borderColor: [, 'colors.border.alphaOnDarkLight'],

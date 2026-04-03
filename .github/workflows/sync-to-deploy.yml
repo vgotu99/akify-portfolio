@@ -18,7 +18,13 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Rewrite Commit Author
+        run: |
+          git config user.name "dev-jammering"
+          git config user.email "dev@jammering.com"
+          git commit --amend --reset-author --no-edit
+
       - name: Push to Deploy Repo
         run: |
           git remote add deploy "https://${{ secrets.DEPLOY_REPO_PAT }}@github.com/dev-jammering/AKIFY_WEB.git"
-          git push deploy main
+          git push deploy main --force

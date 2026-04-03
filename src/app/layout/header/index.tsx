@@ -1,13 +1,12 @@
 import Link from 'next/link';
-import HeaderButton from '@/src/app/layout/header/header-button';
 import HeaderInteractionController from '@/src/app/layout/header/header-interaction-controller';
+import HeaderButton from '@/src/features/download/ui/header-button';
 import { SearchProvider } from '@/src/features/search/model/context';
 import HeaderSearchBar from '@/src/features/search/ui/header-search-bar';
 import HeaderUnifiedSuggestionsMenu from '@/src/features/search/ui/header-unified-suggestions-menu';
 import MobileSearchButton from '@/src/features/search/ui/mobile-search-button';
 import MobileSearchOverlay from '@/src/features/search/ui/mobile-search-overlay';
 import IconMenu2 from '@/src/shared/ui/icons/icon-menu2';
-import IconSearch from '@/src/shared/ui/icons/icon-search';
 import Logo from '@/src/shared/ui/logo';
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
@@ -21,8 +20,8 @@ export default function Header() {
             flexDirection: 'column',
             alignItems: 'center',
             width: 'full',
-            position: [, 'fixed'],
-            top: '24px',
+            position: 'fixed',
+            top: ['0', '24px'],
             zIndex: 10,
             pointerEvents: 'none',
           })}
@@ -35,11 +34,11 @@ export default function Header() {
               width: ['full', '640px'],
               paddingLeft: ['16', '20'],
               paddingRight: ['16', '8'],
-              paddingY: ['10', '9px'],
+              paddingY: ['10', '8'],
               gap: [, '16'],
-
-              borderWidth: ['none', 'xlight'],
-              borderColor: 'colors.border.alphaOnDarkLight',
+              outlineStyle: ['none', 'solid'],
+              outlineWidth: 'xlight',
+              outlineColor: 'colors.border.alphaOnDarkLight',
               borderRadius: ['none', 'full'],
               background: ['colors.header.default', 'colors.header.stylish'],
               marginX: ['none', 'auto'],

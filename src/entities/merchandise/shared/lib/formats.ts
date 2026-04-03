@@ -6,6 +6,8 @@ const TIME_UNITS = [
   { unit: '초', seconds: 1 },
 ] as const;
 
+const MINIMUM_BUMP_GAP_MS = 5 * 60 * 1000;
+
 export const calculateRelativeTime = (createdAt: string): string => {
   const now = new Date();
   const date = new Date(createdAt);
@@ -24,4 +26,10 @@ export const formatNumberWithComma = (price: string | number): string => {
   if (isNaN(num)) return '0';
 
   return num.toLocaleString();
+};
+
+export const isMerchandiseBumped = (createdAt: string, bumpedAt: string) => {
+  const diff = Date.parse(bumpedAt) - Date.parse(createdAt);
+
+  return diff > MINIMUM_BUMP_GAP_MS;
 };

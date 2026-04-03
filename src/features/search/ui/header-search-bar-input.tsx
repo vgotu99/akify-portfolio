@@ -40,8 +40,9 @@ function HeaderSearchInputInner() {
         background: 'transparent',
         color: ['colors.text.primary', 'colors.text.primaryOnDark'],
         outline: 'none',
+        textStyle: ['mobile.body.large', 'desktop.body.xsmall'],
         _placeholder: {
-          textStyle: '',
+          textStyle: ['mobile.body.large', 'desktop.body.xsmall'],
           color: ['colors.text.lightest', 'colors.text.tertiaryOnDark'],
         },
       })}

@@ -63,7 +63,7 @@ export default function MerchandiseDetailPage({
                 nickname={merchandiseDetail.data.writer.nickname}
               />
               <ModelSection
-                modelImage={merchandiseDetail.data.writer.profileImage}
+                // modelImage={merchandiseDetail.data.writer.profileImage}
                 brandName={merchandiseDetail.data.modelResponse.brandName}
                 modelName={merchandiseDetail.data.modelResponse.modelName}
                 effectType={merchandiseDetail.data.modelResponse.effectTypes[0]}

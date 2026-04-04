@@ -35,7 +35,7 @@ export default function MerchandiseDetailMobilePage({
         />
         <Seperator />
         <ModelSection
-          modelImage={merchandiseDetail.data.writer.profileImage}
+          // modelImage={merchandiseDetail.data.writer.profileImage}
           brandName={merchandiseDetail.data.modelResponse.brandName}
           modelName={merchandiseDetail.data.modelResponse.modelName}
           effectType={merchandiseDetail.data.modelResponse.effectTypes[0]}

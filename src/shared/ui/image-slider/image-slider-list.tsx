@@ -3,7 +3,7 @@ import type { ImageSliderVariant } from '@/src/shared/ui/image-slider';
 import ImageSliderInfo from '@/src/shared/ui/image-slider/image-slider-info';
 import ImageSliderItem from '@/src/shared/ui/image-slider/image-slider-item';
 import ImageSliderLink from '@/src/shared/ui/image-slider/image-slider-link';
-import { cva } from '@/styled-system/css';
+import { cva, cx } from '@/styled-system/css';
 
 interface ImageSliderListProps {
   variant: ImageSliderVariant;
@@ -20,7 +20,7 @@ export default function ImageSliderList({
     const imageKey = typeof src === 'string' ? src : src.mobile;
 
     return (
-      <div key={imageKey} className={styleVariant({ variant })}>
+      <div key={imageKey} className={cx('group', styleVariant({ variant }))}>
         <ImageSliderLink href={href}>
           <ImageSliderItem
             variant={variant}

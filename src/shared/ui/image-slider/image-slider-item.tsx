@@ -140,6 +140,12 @@ const styleVariant = cva({
           borderRadius: [, 'xl'],
           boxShadow: [, '4px 4px 16px 0 rgba(255, 255, 255, 0.4) inset'],
           pointerEvents: 'none',
+          transition: 'box-shadow 0.2s ease',
+        },
+        _groupHover: {
+          '&::after': {
+            boxShadow: [, '6px 6px 24px 0 rgba(255, 255, 255, 0.6) inset'],
+          },
         },
       },
     },

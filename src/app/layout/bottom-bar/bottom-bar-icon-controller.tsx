@@ -1,25 +1,30 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import type { WithChildren } from '@/src/shared/lib/types';
 import { css } from '@/styled-system/css';
 
 export default function BottomBarIconController({ children }: WithChildren) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const target = searchParams.get('target');
 
-  const isDetailPage = pathname.startsWith('/merchandise');
+  const isDetailPage =
+    pathname.startsWith('/merchandise') || target?.startsWith('/merchandise');
 
   const handleShare = () => {
-    const url = window.location.href;
+    const origin = window.location.origin;
+    const sharedTarget = target?.startsWith('/merchandise') ? target : pathname;
+    const sharedUrl = `${origin}${sharedTarget}`;
 
     if (navigator.share) {
-      navigator.share({ url }).catch(() => {});
+      navigator.share({ url: sharedUrl }).catch(() => {});
 
       return;
     }
 
     navigator.clipboard
-      .writeText(url)
+      .writeText(sharedUrl)
       .then(() => {})
       .catch(() => {});
   };

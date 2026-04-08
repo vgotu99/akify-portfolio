@@ -23,6 +23,24 @@ export default defineConfig({
       tablet: semanticBreakpoints.tablet,
     },
     extend: {
+      keyframes: {
+        'modal-scale-in': {
+          from: { transform: 'scale(0.8)' },
+          to: { transform: 'scale(1)' },
+        },
+        'modal-scale-out': {
+          from: { transform: 'scale(1)', opacity: '1' },
+          to: { transform: 'scale(0.9)', opacity: '0' },
+        },
+        'modal-slide-up': {
+          from: { transform: 'translateY(100%)' },
+          to: { transform: 'translateY(0)' },
+        },
+        'modal-slide-down': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(100%)' },
+        },
+      },
       semanticTokens: {
         animations: {
           'custom-pulse': {

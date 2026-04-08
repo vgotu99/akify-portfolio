@@ -29,7 +29,7 @@ export default function MerchandiseCardVertical({
           margin: '0 auto',
           transition: 'transform 0.2s ease-in-out',
           _hover: {
-            transform: 'scale(0.95)',
+            transform: 'scale(0.98)',
           },
         }),
       )}

@@ -32,15 +32,15 @@ export default function ImageSliderController({
           position: 'relative',
           width: 'full',
           overflow: 'hidden',
+          borderRadius: [, 'lg'],
         }),
-        styleVariant({ containerVariant: variant }),
       )}
     >
       <div ref={emblaRef}>
         <div className={flex({})}>
           {Children.map(children, (child, index) => (
             <div
-              className={cx('group', styleVariant({ imageVariant: variant }))}
+              className={cx('group', styleVariant({ variant }))}
               data-active={index === currentIndex}
               style={{
                 opacity: isLoaded ? 1 : 0,
@@ -76,14 +76,7 @@ export default function ImageSliderController({
 
 const styleVariant = cva({
   variants: {
-    containerVariant: {
-      detail: {
-        height: [, , '524px'],
-        borderRadius: [, 'lg'],
-      },
-      hero: {},
-    },
-    imageVariant: {
+    variant: {
       detail: {
         flex: '0 0 100%',
       },

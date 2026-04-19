@@ -8,7 +8,7 @@ import MerchandisePrice from '@/src/entities/merchandise/shared/ui/merchandise-p
 import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
-import { css, cx } from '@/styled-system/css';
+import { css, cva, cx } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 interface MerchandiseCardVerticalProps {
@@ -39,7 +39,6 @@ export default function MerchandiseCardVertical({
           direction: 'column',
           gap: '10',
           width: 'full',
-          aspectRatio: '',
         })}
       >
         <ResponsiveImage
@@ -50,15 +49,7 @@ export default function MerchandiseCardVertical({
           quality={25}
           loading="eager"
           key={String(merchandise.id)}
-          className={css({
-            borderRadius: ['sm', 'md'],
-            overflow: 'hidden',
-            backgroundColor: 'colors.surface.lightGray',
-            transition: 'filter 0.2s ease-in-out',
-            _groupHover: {
-              filter: 'brightness(0.75)',
-            },
-          })}
+          className={styleVariant({ variant: merchandise.saleStatus })}
         />
         <div>
           <BrandName variant="list" value={merchandise.brandName} />
@@ -86,3 +77,30 @@ export default function MerchandiseCardVertical({
     </Link>
   );
 }
+
+const styleVariant = cva({
+  base: {
+    backgroundColor: 'colors.surface.lightGray',
+    transition: 'filter 0.2s ease-in-out',
+    _groupHover: {
+      filter: 'brightness(0.75)',
+    },
+  },
+  variants: {
+    variant: {
+      ON_SALE: {},
+      SOLD_OUT: {
+        filter: 'brightness(0.5)',
+        _groupHover: {
+          filter: 'brightness(0.375)',
+        },
+      },
+      RESERVED: {
+        filter: 'brightness(0.5)',
+        _groupHover: {
+          filter: 'brightness(0.375)',
+        },
+      },
+    },
+  },
+});

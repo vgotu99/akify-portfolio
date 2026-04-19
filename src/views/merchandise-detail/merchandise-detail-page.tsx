@@ -40,6 +40,7 @@ export default function MerchandiseDetailPage({
         >
           <ImageSection
             images={merchandiseDetail.data.postImages}
+            saleStatus={merchandiseDetail.data.saleStatus}
             modelResponse={merchandiseDetail.data.modelResponse}
           />
           <div

@@ -21,6 +21,7 @@ export default function MerchandiseDetailMobilePage({
     >
       <ImageSection
         images={merchandiseDetail.data.postImages}
+        saleStatus={merchandiseDetail.data.saleStatus}
         modelResponse={merchandiseDetail.data.modelResponse}
       />
       <div className={css({ paddingX: '16' })}>

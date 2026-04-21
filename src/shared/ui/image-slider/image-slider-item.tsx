@@ -94,7 +94,8 @@ const ItemImage = ({
       sizes={sizes}
       aspectRatio={imageAspectRatio}
       priority={priority}
-      quality={75}
+      unoptimized={!priority}
+      quality={50}
       className={cx(imageVariantClass, displayClass)}
     />
   );
@@ -108,11 +109,11 @@ const VARIANT_MAP: Record<
   }
 > = {
   detail: {
-    sizes: '524px',
+    sizes: '(max-width: 800px) 100vw, 524px',
     aspectRatio: 1 / 1,
   },
   hero: {
-    sizes: '1000px',
+    sizes: '(max-width: 800px) 100vw, (max-width: 1000px) 782px, 982px',
     aspectRatio: {
       mobile: 5 / 4,
       desktop: 5 / 3,

@@ -22,16 +22,5 @@ export default function HeroBanner({ bannerListData }: HeroBannerProps) {
     return formattedImagesWithInfo;
   });
 
-  return (
-    <div
-      className={flex({
-        flexDirection: 'column',
-        gap: '12',
-        paddingX: [, '8'],
-        paddingY: [, '5'],
-      })}
-    >
-      <ImageSlider variant="hero" images={images} />
-    </div>
-  );
+  return <ImageSlider variant="hero" images={images} />;
 }

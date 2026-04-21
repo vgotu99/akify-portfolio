@@ -44,10 +44,10 @@ export default function MerchandiseCardVertical({
         <ResponsiveImage
           src={merchandise.thumbnail}
           alt={merchandise.modelName}
-          sizes="(max-width: 768px) 50vw, 216px"
+          sizes="(max-width: 454px) calc(50vw - 11px), 216px"
           aspectRatio={3 / 4}
           quality={25}
-          loading="eager"
+          draggable={false}
           key={String(merchandise.id)}
           className={styleVariant({ variant: merchandise.saleStatus })}
         />

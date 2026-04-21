@@ -6,6 +6,7 @@ import Header from '@/src/app/layout/header';
 import { poppins, pretendard } from '@/src/app/style/fonts';
 import ChannelTalkProvider from '@/src/shared/ui/channel-talk-provider';
 import '@/src/features/auth/lib/interceptors';
+import ImageServerPreconnects from '@/src/app/layout/image-server-preconnects';
 
 export const metadata: Metadata = {
   title: {
@@ -38,6 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${pretendard.variable} ${poppins.variable}`}>
+      <head>
+        <ImageServerPreconnects />
+      </head>
       <body>
         <Header />
         {children}

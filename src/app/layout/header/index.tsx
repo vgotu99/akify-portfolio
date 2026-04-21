@@ -6,7 +6,6 @@ import HeaderSearchBar from '@/src/features/search/ui/header-search-bar';
 import HeaderUnifiedSuggestionsMenu from '@/src/features/search/ui/header-unified-suggestions-menu';
 import MobileSearchButton from '@/src/features/search/ui/mobile-search-button';
 import MobileSearchOverlay from '@/src/features/search/ui/mobile-search-overlay';
-import IconMenu2 from '@/src/shared/ui/icons/icon-menu2';
 import Logo from '@/src/shared/ui/logo';
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
@@ -69,10 +68,6 @@ export default function Header() {
             >
               <HeaderSearchBar variant="desktop" />
               <MobileSearchButton />
-              <IconMenu2
-                size={20}
-                className={css({ color: 'colors.icon.tertiaryOnDark' })}
-              />
               <HeaderButton />
             </div>
           </header>

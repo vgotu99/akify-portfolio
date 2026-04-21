@@ -13,7 +13,7 @@ export interface UserVariantValue {
 }
 
 export interface ModelVariantValue {
-  modelImage: string;
+  // modelImage: string;
   brandName: string;
   modelName: string;
   effectType: string;
@@ -32,7 +32,7 @@ export default function InfoCard(props: InfoCardProps) {
     <div
       className={flex({
         paddingY: '16',
-        paddingX: '12',
+        paddingX: '16',
         alignItems: 'center',
         justifyContent: 'space-between',
         background: 'colors.surface.lightGray',
@@ -40,13 +40,15 @@ export default function InfoCard(props: InfoCardProps) {
       })}
     >
       <div className={flex({ gap: '8', alignItems: 'center' })}>
-        <ResponsiveImage
-          src={image}
-          alt={alt}
-          sizes="48px"
-          aspectRatio={ASPECT_RATIO_MAP[variant]}
-          className={styleVariant({ imageVariant: variant })}
-        />
+        {image && (
+          <ResponsiveImage
+            src={image}
+            alt={alt}
+            sizes="48px"
+            aspectRatio={ASPECT_RATIO_MAP[variant]}
+            className={styleVariant({ imageVariant: variant })}
+          />
+        )}
         <div
           className={css({
             textStyle: 'desktop.title.small',
@@ -73,11 +75,16 @@ const formatProps = (props: InfoCardProps) => {
     };
   }
 
-  const { modelImage, brandName, modelName, effectType } = value;
+  const {
+    // modelImage,
+    brandName,
+    modelName,
+    effectType,
+  } = value;
   const baseAlt = formatBaseAlt(brandName, modelName);
 
   return {
-    image: modelImage,
+    // image: modelImage,
     alt: baseAlt,
     info: (
       <div

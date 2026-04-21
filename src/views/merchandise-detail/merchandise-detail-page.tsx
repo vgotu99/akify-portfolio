@@ -40,6 +40,7 @@ export default function MerchandiseDetailPage({
         >
           <ImageSection
             images={merchandiseDetail.data.postImages}
+            saleStatus={merchandiseDetail.data.saleStatus}
             modelResponse={merchandiseDetail.data.modelResponse}
           />
           <div
@@ -63,7 +64,7 @@ export default function MerchandiseDetailPage({
                 nickname={merchandiseDetail.data.writer.nickname}
               />
               <ModelSection
-                modelImage={merchandiseDetail.data.writer.profileImage}
+                // modelImage={merchandiseDetail.data.writer.profileImage}
                 brandName={merchandiseDetail.data.modelResponse.brandName}
                 modelName={merchandiseDetail.data.modelResponse.modelName}
                 effectType={merchandiseDetail.data.modelResponse.effectTypes[0]}

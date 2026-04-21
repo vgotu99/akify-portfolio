@@ -32,24 +32,43 @@ export default function ImageSliderController({
           position: 'relative',
           width: 'full',
           overflow: 'hidden',
+          borderRadius: [, 'lg'],
         }),
-        styleVariant({ containerVariant: variant }),
       )}
     >
       <div ref={emblaRef}>
-        <div className={flex({})}>
-          {Children.map(children, (child, index) => (
-            <div
-              className={cx('group', styleVariant({ imageVariant: variant }))}
-              data-active={index === currentIndex}
-              style={{
-                opacity: isLoaded ? 1 : 0,
-                transition: index === 0 ? 'none' : 'opacity 0.5s ease-in-out',
-              }}
-            >
-              {child}
-            </div>
-          ))}
+        <div
+          className={cx(
+            flex({}),
+            !isLoaded &&
+              variant === 'hero' &&
+              css({
+                transform: [
+                  'none',
+                  'translateX(calc(50dvw - 392px))',
+                  'translateX(calc(50dvw - 492px))',
+                ],
+              }),
+          )}
+        >
+          {Children.map(children, (child, index) => {
+            const isFirstIndex = index === 0;
+
+            return (
+              <div
+                className={cx('group', styleVariant({ variant }))}
+                data-active={index === currentIndex}
+                style={{
+                  opacity: isLoaded || isFirstIndex ? 1 : 0,
+                  transition: isFirstIndex
+                    ? 'none'
+                    : 'opacity 0.5s ease-in-out',
+                }}
+              >
+                {child}
+              </div>
+            );
+          })}
         </div>
 
         {meta.showIndicator && (
@@ -76,14 +95,7 @@ export default function ImageSliderController({
 
 const styleVariant = cva({
   variants: {
-    containerVariant: {
-      detail: {
-        height: [, , '524px'],
-        borderRadius: [, 'lg'],
-      },
-      hero: {},
-    },
-    imageVariant: {
+    variant: {
       detail: {
         flex: '0 0 100%',
       },

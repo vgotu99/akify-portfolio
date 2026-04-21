@@ -23,7 +23,10 @@ export default function ImageSliderButton({
       <button
         type="button"
         onClick={onClick}
-        className={css({ pointerEvents: 'auto' })}
+        className={css({
+          pointerEvents: 'auto',
+          cursor: 'pointer',
+        })}
       >
         <IconComponent size={isVariantDetail ? 28 : 20} />
       </button>

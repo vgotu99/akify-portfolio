@@ -7,7 +7,7 @@ import InfoCard, {
 interface ModelSectionProps extends ModelVariantValue {}
 
 export default function ModelSection({
-  modelImage,
+  // modelImage,
   brandName,
   modelName,
   effectType,
@@ -18,7 +18,7 @@ export default function ModelSection({
       <InfoCard
         variant="model"
         value={{
-          modelImage,
+          // modelImage,
           brandName,
           modelName,
           effectType,

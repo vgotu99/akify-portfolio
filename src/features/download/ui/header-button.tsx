@@ -22,6 +22,11 @@ export default function HeaderButton() {
         borderRadius: 'full',
         background:
           'radial-gradient(ellipse 50.00% 50.00% at 50.00% 50.00%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.30) 100%)',
+        transition: 'transform 0.2s ease-in-out',
+        _hover: {
+          background:
+            'radial-gradient(ellipse 50.00% 50.00% at 50.00% 50.00%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.50) 100%)',
+        },
       })}
     >
       <IconDownload

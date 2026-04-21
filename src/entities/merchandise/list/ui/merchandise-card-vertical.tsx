@@ -8,7 +8,7 @@ import MerchandisePrice from '@/src/entities/merchandise/shared/ui/merchandise-p
 import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
-import { css, cx } from '@/styled-system/css';
+import { css, cva, cx } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 interface MerchandiseCardVerticalProps {
@@ -29,7 +29,7 @@ export default function MerchandiseCardVertical({
           margin: '0 auto',
           transition: 'transform 0.2s ease-in-out',
           _hover: {
-            transform: 'scale(0.95)',
+            transform: 'scale(0.98)',
           },
         }),
       )}
@@ -39,26 +39,17 @@ export default function MerchandiseCardVertical({
           direction: 'column',
           gap: '10',
           width: 'full',
-          aspectRatio: '',
         })}
       >
         <ResponsiveImage
           src={merchandise.thumbnail}
           alt={merchandise.modelName}
-          sizes="(max-width: 768px) 50vw, 216px"
+          sizes="(max-width: 454px) calc(50vw - 11px), 216px"
           aspectRatio={3 / 4}
           quality={25}
-          loading="eager"
+          draggable={false}
           key={String(merchandise.id)}
-          className={css({
-            borderRadius: ['sm', 'md'],
-            overflow: 'hidden',
-            backgroundColor: 'colors.surface.lightGray',
-            transition: 'filter 0.2s ease-in-out',
-            _groupHover: {
-              filter: 'brightness(0.75)',
-            },
-          })}
+          className={styleVariant({ variant: merchandise.saleStatus })}
         />
         <div>
           <BrandName variant="list" value={merchandise.brandName} />
@@ -86,3 +77,30 @@ export default function MerchandiseCardVertical({
     </Link>
   );
 }
+
+const styleVariant = cva({
+  base: {
+    backgroundColor: 'colors.surface.lightGray',
+    transition: 'filter 0.2s ease-in-out',
+    _groupHover: {
+      filter: 'brightness(0.75)',
+    },
+  },
+  variants: {
+    variant: {
+      ON_SALE: {},
+      SOLD_OUT: {
+        filter: 'brightness(0.5)',
+        _groupHover: {
+          filter: 'brightness(0.375)',
+        },
+      },
+      RESERVED: {
+        filter: 'brightness(0.5)',
+        _groupHover: {
+          filter: 'brightness(0.375)',
+        },
+      },
+    },
+  },
+});

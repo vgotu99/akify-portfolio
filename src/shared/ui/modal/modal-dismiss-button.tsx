@@ -1,21 +1,17 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import IconX from '@/src/shared/ui/icons/icon-x';
+import { useModalDismiss } from '@/src/shared/ui/modal/context';
 import { css } from '@/styled-system/css';
 
-export default function ModalCloseButton() {
-  const router = useRouter();
-
-  const handleClose = () => {
-    router.back();
-  };
+export default function ModalDismissButton() {
+  const { handleDismiss } = useModalDismiss();
 
   return (
     <IconX
       size={24}
       className={css({ color: 'colors.icon.primary', cursor: 'pointer' })}
-      onClick={handleClose}
+      onClick={handleDismiss}
     />
   );
 }

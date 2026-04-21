@@ -1,16 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import type { WithChildren } from '@/src/shared/lib/types';
+import { useModalDismiss } from '@/src/shared/ui/modal/context';
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 export default function ModalDismissController({ children }: WithChildren) {
-  const router = useRouter();
-
-  const handleDismiss = () => {
-    router.back();
-  };
+  const { handleDismiss, isDismissing } = useModalDismiss();
 
   const preventPropagation = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -38,6 +34,15 @@ export default function ModalDismissController({ children }: WithChildren) {
           borderTopRadius: '2xl',
           borderBottomRadius: ['none', '2xl'],
           cursor: 'default',
+          animation: isDismissing
+            ? [
+                'modal-slide-down 0.1s cubic-bezier(0.4, 0, 1, 1) both',
+                'modal-scale-out 0.2s cubic-bezier(0.4, 0, 1, 1) both',
+              ]
+            : [
+                'modal-slide-up 0.25s cubic-bezier(0.22, 1, 0.36, 1) both',
+                'modal-scale-in 0.1s cubic-bezier(0.22, 1, 0.36, 1) both',
+              ],
         })}
         onClick={preventPropagation}
       >

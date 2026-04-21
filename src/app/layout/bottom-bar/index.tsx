@@ -49,12 +49,7 @@ export default function BottomBar() {
         </div>
         <div className={flex({ gap: '16', alignItems: 'center' })}>
           <BottomBarIconController>
-            <IconUpload
-              size={28}
-              className={css({
-                color: ['colors.icon.secondary', 'colors.icon.secondaryOnDark'],
-              })}
-            />
+            <IconUpload size={28} />
           </BottomBarIconController>
           <BottomBarButton />
         </div>

@@ -21,6 +21,7 @@ export default function MerchandiseDetailMobilePage({
     >
       <ImageSection
         images={merchandiseDetail.data.postImages}
+        saleStatus={merchandiseDetail.data.saleStatus}
         modelResponse={merchandiseDetail.data.modelResponse}
       />
       <div className={css({ paddingX: '16' })}>
@@ -35,7 +36,7 @@ export default function MerchandiseDetailMobilePage({
         />
         <Seperator />
         <ModelSection
-          modelImage={merchandiseDetail.data.writer.profileImage}
+          // modelImage={merchandiseDetail.data.writer.profileImage}
           brandName={merchandiseDetail.data.modelResponse.brandName}
           modelName={merchandiseDetail.data.modelResponse.modelName}
           effectType={merchandiseDetail.data.modelResponse.effectTypes[0]}

@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import BottomBarIconController from '@/src/app/layout/bottom-bar/bottom-bar-icon-controller';
 import BottomBarButton from '@/src/features/download/ui/bottom-bar-button';
 import AppIcon from '@/src/shared/ui/app-icon';
@@ -48,9 +49,15 @@ export default function BottomBar() {
           <div>아키파이 앱에서 거래할 수 있어요!</div>
         </div>
         <div className={flex({ gap: '16', alignItems: 'center' })}>
-          <BottomBarIconController>
-            <IconUpload size={28} />
-          </BottomBarIconController>
+          <Suspense
+            fallback={
+              <div className={css({ width: '28px', height: '28px' })} />
+            }
+          >
+            <BottomBarIconController>
+              <IconUpload size={28} />
+            </BottomBarIconController>
+          </Suspense>
           <BottomBarButton />
         </div>
       </div>

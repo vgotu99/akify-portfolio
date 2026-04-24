@@ -17,6 +17,10 @@ export default function MerchandiseSaleStatusContainer({
   const saleStatusText =
     showSaleStatus && SALE_STATUS_TEXT[variant][saleStatus];
 
+  if (!showSaleStatus) {
+    return children;
+  }
+
   return (
     <div
       className={cx(

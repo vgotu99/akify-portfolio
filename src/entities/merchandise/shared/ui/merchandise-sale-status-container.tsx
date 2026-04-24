@@ -64,10 +64,7 @@ const SALE_STATUS_TEXT = {
 const styleVariant = cva({
   variants: {
     containerVariant: {
-      list: {
-        borderRadius: ['sm', 'md'],
-        overflow: 'hidden',
-      },
+      list: {},
       detail: {
         width: 'full',
         height: [, , '524px'],

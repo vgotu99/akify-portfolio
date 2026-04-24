@@ -87,6 +87,8 @@ export default function MerchandiseCardVertical({
 const styleVariant = cva({
   base: {
     backgroundColor: 'colors.surface.lightGray',
+    borderRadius: ['sm', 'md'],
+    overflow: 'hidden',
     transition: 'filter 0.2s ease-in-out',
     _groupHover: {
       filter: 'brightness(0.75)',

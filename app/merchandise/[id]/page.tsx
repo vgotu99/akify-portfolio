@@ -68,13 +68,13 @@ export default async function MerchandiseDetail({
   };
 
   return (
-    <>
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <MerchandiseDetailMobilePage merchandiseDetail={merchandiseDetail} />
       <MerchandiseDetailPage merchandiseDetail={merchandiseDetail} />
-    </>
+    </div>
   );
 }

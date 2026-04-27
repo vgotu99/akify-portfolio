@@ -7,6 +7,7 @@ import { poppins, pretendard } from '@/src/app/style/fonts';
 import ChannelTalkProvider from '@/src/shared/ui/channel-talk-provider';
 import '@/src/features/auth/lib/interceptors';
 import ImageServerPreconnects from '@/src/app/layout/image-server-preconnects';
+import { flex } from '@/styled-system/patterns';
 
 export const metadata: Metadata = {
   title: {
@@ -42,9 +43,11 @@ export default function RootLayout({
       <head>
         <ImageServerPreconnects />
       </head>
-      <body>
+      <body className={flex({ flexDirection: 'column', minHeight: '100dvh' })}>
         <Header />
-        {children}
+        <main className={flex({ flex: 1, flexDirection: 'column' })}>
+          {children}
+        </main>
         {modal}
         <Footer />
         <BottomBar />

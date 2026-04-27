@@ -14,7 +14,7 @@ export default function MainPage({
   bannerList,
 }: MainPageProps) {
   return (
-    <main
+    <div
       className={css({
         background: 'colors.surface.superDark',
       })}
@@ -24,6 +24,6 @@ export default function MainPage({
         variant="main"
         merchandiseListPosts={merchandiseList.data.posts}
       />
-    </main>
+    </div>
   );
 }

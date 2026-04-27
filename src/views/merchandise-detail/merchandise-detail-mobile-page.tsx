@@ -13,7 +13,7 @@ export default function MerchandiseDetailMobilePage({
   merchandiseDetail,
 }: MerchandiseDetailPageProps) {
   return (
-    <main
+    <div
       className={css({
         display: ['block', 'none'],
         visibility: ['visible', 'hidden'],
@@ -49,6 +49,6 @@ export default function MerchandiseDetailMobilePage({
           nickname={merchandiseDetail.data.writer.nickname}
         />
       </div>
-    </main>
+    </div>
   );
 }

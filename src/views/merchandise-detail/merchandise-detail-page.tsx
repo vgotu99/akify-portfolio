@@ -16,7 +16,7 @@ export default function MerchandiseDetailPage({
   merchandiseDetail,
 }: MerchandiseDetailPageProps) {
   return (
-    <main
+    <div
       className={css({
         margin: '0 auto',
         maxWidth: 'breakpoint-desktop',
@@ -81,6 +81,6 @@ export default function MerchandiseDetailPage({
           partChange={merchandiseDetail.data.partChange}
         />
       </div>
-    </main>
+    </div>
   );
 }

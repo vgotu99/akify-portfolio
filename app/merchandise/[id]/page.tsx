@@ -33,6 +33,7 @@ export const generateMetadata = async (
       ...globalOpenGraph,
       title: detailData.title,
       description: detailData.description || detailData.title,
+      images: detailData.postImages[0],
     },
     twitter: {
       ...globalTwitter,

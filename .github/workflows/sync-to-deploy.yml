@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   sync:
@@ -27,4 +28,4 @@ jobs:
       - name: Push to Deploy Repo
         run: |
           git remote add deploy "https://${{ secrets.DEPLOY_REPO_PAT }}@github.com/dev-jammering/AKIFY_WEB.git"
-          git push deploy main --force
+          git push deploy HEAD:${{ github.ref_name }} --force

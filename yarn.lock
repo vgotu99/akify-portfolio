@@ -886,6 +886,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/third-parties@npm:latest":
+  version: 16.2.4
+  resolution: "@next/third-parties@npm:16.2.4"
+  dependencies:
+    third-party-capital: 1.0.20
+  peerDependencies:
+    next: ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0-beta.0
+    react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+  checksum: fa7520a2a825db570b4d60750e5f44259cf24e1f2a2c6f8939391781c17b4713124c8e322d3d936e91eeede8266fb54183bbcbcf1ded47df5bcdfc572f2f3c83
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1304,6 +1316,7 @@ __metadata:
     "@channel.io/channel-web-sdk-loader": ^2.0.2
     "@commitlint/cli": ^20.2.0
     "@commitlint/config-conventional": ^20.2.0
+    "@next/third-parties": latest
     "@pandacss/dev": ^1.7.2
     "@types/node": ^20
     "@types/react": 19.2.7
@@ -3593,6 +3606,13 @@ __metadata:
   version: 2.4.0
   resolution: "text-extensions@npm:2.4.0"
   checksum: 9bdbc9959e004ccc86a6ec076d6c5bb6765978263e9d0d5febb640d7675c09919ea912f3fe9d50b68c3c7c43cc865610a7cb24954343abb31f74c205fbae4e45
+  languageName: node
+  linkType: hard
+
+"third-party-capital@npm:1.0.20":
+  version: 1.0.20
+  resolution: "third-party-capital@npm:1.0.20"
+  checksum: ef5eae00bdb82b538b9f628a011fc294cd6f4bafdbb46d88f3d1a72e8c3b9e2cc2a547fdb62bc16bdd847e9da3dac2df676b154c64914f6c90ea15aac6ce0a6a
   languageName: node
   linkType: hard
 

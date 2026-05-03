@@ -17,6 +17,10 @@ export default function MerchandiseSaleStatusContainer({
   const saleStatusText =
     showSaleStatus && SALE_STATUS_TEXT[variant][saleStatus];
 
+  if (!showSaleStatus) {
+    return children;
+  }
+
   return (
     <div
       className={cx(
@@ -60,10 +64,7 @@ const SALE_STATUS_TEXT = {
 const styleVariant = cva({
   variants: {
     containerVariant: {
-      list: {
-        borderRadius: ['sm', 'md'],
-        overflow: 'hidden',
-      },
+      list: {},
       detail: {
         width: 'full',
         height: [, , '524px'],

@@ -73,6 +73,13 @@ export default function Header() {
           </header>
           <HeaderUnifiedSuggestionsMenu variant="desktop" />
         </div>
+        <div
+          className={css({
+            display: ['block', 'none'],
+            visibility: ['visible', 'hidden'],
+            height: '48px',
+          })}
+        />
       </HeaderInteractionController>
       <MobileSearchOverlay />
     </SearchProvider>

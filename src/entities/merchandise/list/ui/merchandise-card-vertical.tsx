@@ -5,6 +5,7 @@ import BrandName from '@/src/entities/merchandise/shared/ui/brand-name';
 import CountItem from '@/src/entities/merchandise/shared/ui/count-item';
 import CountItemGroup from '@/src/entities/merchandise/shared/ui/count-item-group';
 import MerchandisePrice from '@/src/entities/merchandise/shared/ui/merchandise-price';
+import MerchandiseSaleStatusContainer from '@/src/entities/merchandise/shared/ui/merchandise-sale-status-container';
 import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
@@ -41,16 +42,21 @@ export default function MerchandiseCardVertical({
           width: 'full',
         })}
       >
-        <ResponsiveImage
-          src={merchandise.thumbnail}
-          alt={merchandise.modelName}
-          sizes="(max-width: 454px) calc(50vw - 11px), 216px"
-          aspectRatio={3 / 4}
-          quality={25}
-          draggable={false}
-          key={String(merchandise.id)}
-          className={styleVariant({ variant: merchandise.saleStatus })}
-        />
+        <MerchandiseSaleStatusContainer
+          variant="list"
+          saleStatus={merchandise.saleStatus}
+        >
+          <ResponsiveImage
+            src={merchandise.thumbnail}
+            alt={merchandise.modelName}
+            sizes="(max-width: 454px) calc(50vw - 11px), 216px"
+            aspectRatio={3 / 4}
+            quality={25}
+            draggable={false}
+            key={String(merchandise.id)}
+            className={styleVariant({ variant: merchandise.saleStatus })}
+          />
+        </MerchandiseSaleStatusContainer>
         <div>
           <BrandName variant="list" value={merchandise.brandName} />
           <MerchandiseTitle variant="list" value={merchandise.title} />
@@ -81,6 +87,8 @@ export default function MerchandiseCardVertical({
 const styleVariant = cva({
   base: {
     backgroundColor: 'colors.surface.lightGray',
+    borderRadius: ['sm', 'md'],
+    overflow: 'hidden',
     transition: 'filter 0.2s ease-in-out',
     _groupHover: {
       filter: 'brightness(0.75)',

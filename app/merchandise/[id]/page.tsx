@@ -33,6 +33,7 @@ export const generateMetadata = async (
       ...globalOpenGraph,
       title: detailData.title,
       description: detailData.description || detailData.title,
+      images: detailData.postImages[0],
     },
     twitter: {
       ...globalTwitter,
@@ -68,13 +69,13 @@ export default async function MerchandiseDetail({
   };
 
   return (
-    <>
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <MerchandiseDetailMobilePage merchandiseDetail={merchandiseDetail} />
       <MerchandiseDetailPage merchandiseDetail={merchandiseDetail} />
-    </>
+    </div>
   );
 }

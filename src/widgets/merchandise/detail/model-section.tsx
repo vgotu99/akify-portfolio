@@ -3,6 +3,7 @@ import DetailSectionTitle from '@/src/entities/merchandise/detail/ui/detail-sect
 import InfoCard, {
   type ModelVariantValue,
 } from '@/src/entities/merchandise/detail/ui/info-card';
+import Toast from '@/src/shared/ui/toast';
 
 interface ModelSectionProps extends ModelVariantValue {}
 
@@ -15,15 +16,17 @@ export default function ModelSection({
   return (
     <DetailSection>
       <DetailSectionTitle variant="model" />
-      <InfoCard
-        variant="model"
-        value={{
-          // modelImage,
-          brandName,
-          modelName,
-          effectType,
-        }}
-      />
+      <Toast message="앱에서 확인해주세요!">
+        <InfoCard
+          variant="model"
+          value={{
+            // modelImage,
+            brandName,
+            modelName,
+            effectType,
+          }}
+        />
+      </Toast>
     </DetailSection>
   );
 }

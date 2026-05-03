@@ -6,6 +6,7 @@ import CountItem from '@/src/entities/merchandise/shared/ui/count-item';
 import CountItemGroup from '@/src/entities/merchandise/shared/ui/count-item-group';
 import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
+import Toast from '@/src/shared/ui/toast';
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
@@ -21,10 +22,12 @@ export default function TitleSection({ merchandiseDetail }: TitleSectionProps) {
         gap: '12',
       })}
     >
-      <BrandName
-        variant="detail"
-        value={merchandiseDetail.data.modelResponse.brandName}
-      />
+      <Toast message="앱에서 확인해주세요!">
+        <BrandName
+          variant="detail"
+          value={merchandiseDetail.data.modelResponse.brandName}
+        />
+      </Toast>
       <MerchandiseTitle variant="detail" value={merchandiseDetail.data.title} />
       <CategoryGroup
         variant="detail"

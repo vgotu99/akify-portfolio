@@ -7,8 +7,9 @@ export default function Footer() {
     <footer
       className={css({
         background: 'colors.surface.lightGray',
-        padding: '32',
-        paddingBottom: '100px',
+        paddingTop: '32',
+        paddingX: ['16', '32'],
+        paddingBottom: ['56px', '100px'],
         position: 'relative',
         zIndex: 10,
       })}
@@ -24,7 +25,10 @@ export default function Footer() {
         })}
       >
         <Logo
-          className={css({ color: 'colors.icon.lightest', width: '94px' })}
+          className={css({
+            color: 'colors.icon.lightest',
+            width: ['66px', '94px'],
+          })}
         />
         <section>
           <p>

@@ -2,6 +2,17 @@ import { defineTextStyles } from '@pandacss/dev';
 import { fonts } from '@/src/shared/tokens/primitives/fonts';
 
 const semanticDesktopFonts = {
+  hero: {
+    xlarge: {
+      value: {
+        fontFamily: fonts.family.poppins,
+        fontWeight: fonts.weight.extrabold,
+        fontSize: '128px',
+        lineHeight: `${128 * 1.2}px`,
+        letterSpacing: fonts.letterSpacing.none,
+      },
+    },
+  },
   headline: {
     xlarge: {
       value: {

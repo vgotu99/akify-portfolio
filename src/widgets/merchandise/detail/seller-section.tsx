@@ -3,6 +3,7 @@ import DetailSectionTitle from '@/src/entities/merchandise/detail/ui/detail-sect
 import InfoCard, {
   type UserVariantValue,
 } from '@/src/entities/merchandise/detail/ui/info-card';
+import Toast from '@/src/shared/ui/toast';
 
 interface SellerSectionProps extends UserVariantValue {}
 
@@ -13,13 +14,15 @@ export default function SellerSection({
   return (
     <DetailSection>
       <DetailSectionTitle variant="seller" />
-      <InfoCard
-        variant="user"
-        value={{
-          profileImage,
-          nickname,
-        }}
-      />
+      <Toast message="앱에서 확인해주세요!">
+        <InfoCard
+          variant="user"
+          value={{
+            profileImage,
+            nickname,
+          }}
+        />
+      </Toast>
     </DetailSection>
   );
 }

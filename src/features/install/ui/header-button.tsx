@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useDownload } from '@/src/features/download/model/hooks';
+import { useInstall } from '@/src/features/install/model/hooks';
 import IconDownload from '@/src/shared/ui/icons/icon-download';
 import { css } from '@/styled-system/css';
 
 export default function HeaderButton() {
-  const { href, handleClick } = useDownload();
+  const { href, handleClick } = useInstall();
 
   return (
     <Link

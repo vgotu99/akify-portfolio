@@ -6,7 +6,9 @@ import Header from '@/src/app/layout/header';
 import { poppins, pretendard } from '@/src/app/style/fonts';
 import ChannelTalkProvider from '@/src/shared/ui/channel-talk-provider';
 import '@/src/features/auth/lib/interceptors';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import GoogleAnalytics from '@/src/app/analytics/google-analytics';
+import MetaPixel from '@/src/app/analytics/meta-pixel';
+import UtmCapture from '@/src/app/analytics/utm-capture';
 import ImageServerPreconnects from '@/src/app/layout/image-server-preconnects';
 import { flex } from '@/styled-system/patterns';
 
@@ -44,13 +46,11 @@ export default function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }>) {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-  const isGaTrackingEnabled = process.env.NODE_ENV === 'production' && GA_ID;
-
   return (
     <html lang="ko" className={`${pretendard.variable} ${poppins.variable}`}>
       <head>
         <ImageServerPreconnects />
+        <UtmCapture />
       </head>
       <body className={flex({ flexDirection: 'column', minHeight: '100dvh' })}>
         <Header />
@@ -61,8 +61,9 @@ export default function RootLayout({
         <Footer />
         <BottomBar />
         <ChannelTalkProvider />
+        <MetaPixel />
+        <GoogleAnalytics />
       </body>
-      {isGaTrackingEnabled && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }

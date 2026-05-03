@@ -1,4 +1,5 @@
-import { QRCodeSVG } from 'qrcode.react';
+import { Suspense } from 'react';
+import DynamicQR from '@/src/features/install/ui/dynamic-qr';
 import AppIcon from '@/src/shared/ui/app-icon';
 import { ModalDismissProvider } from '@/src/shared/ui/modal/context';
 import ModalDismissButton from '@/src/shared/ui/modal/modal-dismiss-button';
@@ -6,14 +7,15 @@ import ModalDismissController from '@/src/shared/ui/modal/modal-dismiss-controll
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
-interface InterceptedDownloadProps {
+interface InterceptedInstallProps {
   searchParams: Promise<{ target: string }>;
 }
 
-export default async function InterceptedDownload({
+export default async function InterceptedInstall({
   searchParams,
-}: InterceptedDownloadProps) {
+}: InterceptedInstallProps) {
   const { target } = await searchParams;
+  const targetPath = decodeURIComponent(target);
 
   return (
     <ModalDismissProvider>
@@ -63,11 +65,20 @@ export default async function InterceptedDownload({
               아키파이 앱에서 거래를 즐겨보세요!
             </div>
           </div>
-          <QRCodeSVG
-            value={`https://web.akify.io/download?target=${target}`}
-            size={210}
-            level="H"
-          />
+          <Suspense
+            fallback={
+              <div
+                className={css({
+                  width: '210px',
+                  height: '210px',
+                  backgroundColor: 'colors.background.secondary',
+                  borderRadius: '12px',
+                })} // 임시
+              />
+            }
+          >
+            <DynamicQR targetPath={targetPath} />
+          </Suspense>
           <div
             className={css({
               textStyle: ['mobile.caption.medium', 'desktop.body.xsmall'],

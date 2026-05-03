@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import HeaderInteractionController from '@/src/app/layout/header/header-interaction-controller';
-import HeaderButton from '@/src/features/download/ui/header-button';
+import HeaderButton from '@/src/features/install/ui/header-button';
 import { SearchProvider } from '@/src/features/search/model/context';
 import HeaderSearchBar from '@/src/features/search/ui/header-search-bar';
 import HeaderUnifiedSuggestionsMenu from '@/src/features/search/ui/header-unified-suggestions-menu';

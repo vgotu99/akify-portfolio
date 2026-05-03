@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     description: '악기 거래를 위한 가장 확실한 방법, 아키파이',
   },
   metadataBase: new URL('https://web.akify.io'),
+  verification: {
+    other: {
+      'facebook-domain-verification': '6ofz8rbavr4xz75z9krdfd1ikvcpdt',
+    },
+  },
 };
 
 export default function RootLayout({

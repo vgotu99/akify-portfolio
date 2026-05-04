@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import BottomBarIconController from '@/src/app/layout/bottom-bar/bottom-bar-icon-controller';
 import BottomBarButton from '@/src/features/install/ui/bottom-bar-button';
+import BottomBarShareController from '@/src/features/share/ui/bottom-bar-share-controller';
 import AppIcon from '@/src/shared/ui/app-icon';
 import IconUpload from '@/src/shared/ui/icons/icon-upload';
 import { css } from '@/styled-system/css';
@@ -54,9 +54,9 @@ export default function BottomBar() {
               <div className={css({ width: '28px', height: '28px' })} />
             }
           >
-            <BottomBarIconController>
+            <BottomBarShareController>
               <IconUpload size={28} />
-            </BottomBarIconController>
+            </BottomBarShareController>
           </Suspense>
           <BottomBarButton />
         </div>

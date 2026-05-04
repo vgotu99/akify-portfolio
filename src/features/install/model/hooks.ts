@@ -1,12 +1,12 @@
 import { usePathname } from 'next/navigation';
 import {
   getBridgeUrl,
-  resolveTargetPath,
+  resolveTargetPathForBridge,
 } from '@/src/entities/install/lib/utils';
 
 export const useInstall = () => {
   const pathname = usePathname();
-  const targetPath = resolveTargetPath(pathname);
+  const targetPath = resolveTargetPathForBridge(pathname);
 
   const href = `/install?target=${encodeURIComponent(targetPath)}`;
 

@@ -56,7 +56,13 @@ export const getBridgeUrl = async (targetPath: string): Promise<string> => {
   return `${BRIDGE_WEB_BASE_URL}${targetPath}${queryString ? `?${queryString}` : ''}`;
 };
 
-export const resolveTargetPath = (pathname: string): string => {
+export const resolveTargetPathForBridge = (pathname: string): string => {
   const merchandiseMatch = pathname.match(/^\/merchandise\/([^/?#]+)/);
   return merchandiseMatch ? `/merchandise/${merchandiseMatch[1]}` : '/install';
+};
+
+export const resolveTargetPathForWeb = (pathname: string): string => {
+  if (pathname === '/install') return '/';
+
+  return pathname;
 };

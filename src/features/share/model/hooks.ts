@@ -1,4 +1,5 @@
 import { usePathname, useSearchParams } from 'next/navigation';
+import { UTM_KEY_MED, UTM_KEY_SRC } from '@/src/entities/install/lib/constants';
 
 export const useShare = () => {
   const pathname = usePathname();
@@ -11,7 +12,7 @@ export const useShare = () => {
   const handleShare = () => {
     const origin = window.location.origin;
     const sharedTarget = target?.startsWith('/merchandise') ? target : pathname;
-    const sharedUrl = `${origin}${sharedTarget}?utm_source=web_share&utm_medium=referral`;
+    const sharedUrl = `${origin}${sharedTarget}?${UTM_KEY_SRC}=web_share&${UTM_KEY_MED}=referral`;
 
     if (navigator.share) {
       navigator.share({ url: sharedUrl }).catch(() => {});

@@ -8,10 +8,10 @@ import Toast from '@/src/shared/ui/toast';
 interface ModelSectionProps extends ModelVariantValue {}
 
 export default function ModelSection({
-  // modelImage,
+  modelImageUrl,
   brandName,
   modelName,
-  effectType,
+  subCategoryKorName,
 }: ModelSectionProps) {
   return (
     <DetailSection>
@@ -20,10 +20,10 @@ export default function ModelSection({
         <InfoCard
           variant="model"
           value={{
-            // modelImage,
+            modelImageUrl,
             brandName,
             modelName,
-            effectType,
+            subCategoryKorName,
           }}
         />
       </Toast>

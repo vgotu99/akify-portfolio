@@ -63,7 +63,6 @@ export default function MerchandiseCardVertical({
           <MerchandisePrice variant="list" value={merchandise.price} />
         </div>
         <SemanticChipGroup
-          effectTypes={merchandise.effectTypes}
           condition={merchandise.condition}
           regions={merchandise.regions}
           delivery={merchandise.deliveryAvailable}

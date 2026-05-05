@@ -18,6 +18,7 @@ export default function ResponsiveImage({
   sizes,
   aspectRatio,
   className,
+  objectFit = 'cover',
   ...props
 }: ResponsiveImageProps) {
   return (
@@ -40,7 +41,7 @@ export default function ResponsiveImage({
         alt={alt}
         fill
         sizes={sizes}
-        className={css({ objectFit: 'cover' })}
+        objectFit={objectFit}
         {...props}
       />
     </div>

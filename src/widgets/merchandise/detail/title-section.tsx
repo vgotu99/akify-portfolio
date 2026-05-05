@@ -31,7 +31,10 @@ export default function TitleSection({ merchandiseDetail }: TitleSectionProps) {
       <MerchandiseTitle variant="detail" value={merchandiseDetail.data.title} />
       <CategoryGroup
         variant="detail"
-        value={merchandiseDetail.data.modelResponse.effectTypes[0]}
+        value={
+          merchandiseDetail.data.modelResponse.subCategoryInfos[0]
+            .subCategoryKorName
+        }
       />
       <CountItemGroup>
         <CountItem

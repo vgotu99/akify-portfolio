@@ -8,15 +8,15 @@ import { css, cva } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 export interface UserVariantValue {
-  profileImage: string;
+  profileImageUrl: string;
   nickname: string;
 }
 
 export interface ModelVariantValue {
-  // modelImage: string;
+  modelImageUrl: string | null;
   brandName: string;
   modelName: string;
-  effectType: string;
+  subCategoryKorName: string;
 }
 
 type InfoCardProps =
@@ -46,6 +46,7 @@ export default function InfoCard(props: InfoCardProps) {
             alt={alt}
             sizes="48px"
             aspectRatio={ASPECT_RATIO_MAP[variant]}
+            objectFit="contain"
             className={styleVariant({ imageVariant: variant })}
           />
         )}
@@ -66,25 +67,20 @@ const formatProps = (props: InfoCardProps) => {
   const { variant, value } = props;
 
   if (variant === 'user') {
-    const { profileImage, nickname } = value;
+    const { profileImageUrl, nickname } = value;
 
     return {
-      image: profileImage,
+      image: profileImageUrl,
       alt: nickname,
       info: <div>{nickname}</div>,
     };
   }
 
-  const {
-    // modelImage,
-    brandName,
-    modelName,
-    effectType,
-  } = value;
+  const { modelImageUrl, brandName, modelName, subCategoryKorName } = value;
   const baseAlt = formatBaseAlt(brandName, modelName);
 
   return {
-    // image: modelImage,
+    image: modelImageUrl,
     alt: baseAlt,
     info: (
       <div
@@ -95,7 +91,7 @@ const formatProps = (props: InfoCardProps) => {
       >
         <BrandName variant="card" value={brandName} />
         <MerchandiseTitle variant="card" value={modelName} />
-        <CategoryGroup variant="card" value={effectType} />
+        <CategoryGroup variant="card" value={subCategoryKorName} />
       </div>
     ),
   };
@@ -103,7 +99,7 @@ const formatProps = (props: InfoCardProps) => {
 
 const ASPECT_RATIO_MAP = {
   user: 1 / 1,
-  model: 3 / 5,
+  model: 27 / 35,
 };
 
 const styleVariant = cva({

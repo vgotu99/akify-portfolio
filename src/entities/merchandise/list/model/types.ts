@@ -1,6 +1,5 @@
 import type {
   BaseMerchandise,
-  MerchandiseEffectTypes,
   MerchandiseIsUnbrandedOrCustom,
 } from '@/src/entities/merchandise/shared/model/types';
 import type { BaseApiResponse } from '@/src/shared/lib/types';
@@ -21,6 +20,6 @@ export interface MerchandisePost extends BaseMerchandise {
   modelName: string;
   brandName: string;
   thumbnail: string;
-  effectTypes: MerchandiseEffectTypes;
+  subCategories: Array<string>;
   isUnbrandedOrCustom: MerchandiseIsUnbrandedOrCustom;
 }

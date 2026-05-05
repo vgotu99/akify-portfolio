@@ -8,7 +8,7 @@ import Toast from '@/src/shared/ui/toast';
 interface SellerSectionProps extends UserVariantValue {}
 
 export default function SellerSection({
-  profileImage,
+  profileImageUrl,
   nickname,
 }: SellerSectionProps) {
   return (
@@ -18,7 +18,7 @@ export default function SellerSection({
         <InfoCard
           variant="user"
           value={{
-            profileImage,
+            profileImageUrl,
             nickname,
           }}
         />

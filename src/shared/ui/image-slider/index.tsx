@@ -7,6 +7,10 @@ export type ImageSliderVariant = 'hero' | 'detail';
 export interface ImageSliderProps {
   variant: ImageSliderVariant;
   images: FormattedImages;
+  LinkComponent?: React.ElementType<{
+    href: string;
+    children: React.ReactNode;
+  }>;
   as?: React.ElementType;
 }
 
@@ -14,10 +18,15 @@ export default function ImageSlider({
   variant,
   as = 'div',
   images,
+  LinkComponent,
 }: ImageSliderProps) {
   return (
     <ImageSliderController variant={variant} length={images.length} as={as}>
-      <ImageSliderList variant={variant} images={images} />
+      <ImageSliderList
+        variant={variant}
+        images={images}
+        LinkComponent={LinkComponent}
+      />
     </ImageSliderController>
   );
 }

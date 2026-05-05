@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation';
 import {
   getBridgeUrl,
   resolveTargetPathForBridge,
-} from '@/src/entities/install/lib/utils';
+} from '@/src/entities/analytics/lib/utils';
 
 export const useInstall = () => {
   const pathname = usePathname();

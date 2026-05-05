@@ -2,7 +2,7 @@
 
 import { QRCodeSVG } from 'qrcode.react';
 import { use, useState } from 'react';
-import { getBridgeUrl } from '@/src/entities/install/lib/utils';
+import { getBridgeUrl } from '@/src/entities/analytics/lib/utils';
 
 interface DynamicQRProps {
   targetPath: string;

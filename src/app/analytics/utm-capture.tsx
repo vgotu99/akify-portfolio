@@ -4,7 +4,7 @@ import {
   ATTR_KEY_SRC,
   UTM_KEY_MED,
   UTM_KEY_SRC,
-} from '@/src/entities/install/lib/constants';
+} from '@/src/entities/analytics/lib/constants';
 
 export default function UtmCapture() {
   return (

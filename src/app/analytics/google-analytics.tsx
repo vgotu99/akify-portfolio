@@ -1,5 +1,8 @@
 import Script from 'next/script';
-import { UTM_KEY_MED, UTM_KEY_SRC } from '@/src/entities/install/lib/constants';
+import {
+  UTM_KEY_MED,
+  UTM_KEY_SRC,
+} from '@/src/entities/analytics/lib/constants';
 
 export default function GoogleAnalytics() {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;

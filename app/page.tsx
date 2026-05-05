@@ -35,7 +35,7 @@ const BANNER_MOCK: BannerListResponse = {
       isActive: true,
       createdAt: '2025-01-01T00:00:00.000Z',
       updatedAt: '2025-01-01T00:00:00.000Z',
-      href: 'https://akify.io/web-view-screens/banner-page/about-akify',
+      href: 'https://akify.io/wv/about-akify',
     },
     {
       id: '2',
@@ -53,7 +53,7 @@ const BANNER_MOCK: BannerListResponse = {
       isActive: true,
       createdAt: '2025-01-01T00:00:00.000Z',
       updatedAt: '2025-01-01T00:00:00.000Z',
-      href: 'https://akify.io/onestop',
+      href: 'https://akify.io/wv/onestop',
     },
     {
       id: '3',
@@ -71,7 +71,7 @@ const BANNER_MOCK: BannerListResponse = {
       isActive: true,
       createdAt: '2025-01-01T00:00:00.000Z',
       updatedAt: '2025-01-01T00:00:00.000Z',
-      href: 'https://akify.io/pre-purchase',
+      href: 'https://akify.io/wv/pre-purchase',
     },
     {
       id: '4',
@@ -89,7 +89,7 @@ const BANNER_MOCK: BannerListResponse = {
       isActive: true,
       createdAt: '2025-01-01T00:00:00.000Z',
       updatedAt: '2025-01-01T00:00:00.000Z',
-      href: 'https://akify.io/web-view-screens/banner-page/v2-release-event',
+      href: 'https://akify.io/wv/v2-release-event',
     },
     {
       id: '5',
@@ -107,7 +107,7 @@ const BANNER_MOCK: BannerListResponse = {
       isActive: true,
       createdAt: '2025-01-01T00:00:00.000Z',
       updatedAt: '2025-01-01T00:00:00.000Z',
-      href: 'https://akify.io/web-view-screens/banner-page/feedback',
+      href: 'https://akify.io/wv/feedback',
     },
   ],
 };

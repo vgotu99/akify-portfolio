@@ -2,13 +2,18 @@
 
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useRef } from 'react';
-import { useSearchActions } from '@/src/features/search/model/context';
+import {
+  useSearchActions,
+  useSearchState,
+} from '@/src/features/search/model/context';
 import { css } from '@/styled-system/css';
 
 function HeaderSearchInputInner() {
   const searchParams = useSearchParams();
-  const defaultValue = searchParams.get('q') || '';
+  const { query } = useSearchState();
   const { setQuery, setIsFocused } = useSearchActions();
+  const defaultValue = query || searchParams.get('q') || '';
+
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +31,6 @@ function HeaderSearchInputInner() {
   return (
     <input
       name="q"
-      key={defaultValue}
       defaultValue={defaultValue}
       required
       pattern=".*\S.*"

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import HeaderInteractionController from '@/src/app/layout/header/header-interaction-controller';
+import HeaderScrollController from '@/src/app/layout/header/header-scroll-controller';
 import HeaderButton from '@/src/features/install/ui/header-button';
 import { SearchProvider } from '@/src/features/search/model/context';
 import HeaderSearchBar from '@/src/features/search/ui/header-search-bar';
@@ -13,7 +13,7 @@ import { flex } from '@/styled-system/patterns';
 export default function Header() {
   return (
     <SearchProvider>
-      <HeaderInteractionController>
+      <HeaderScrollController>
         <div
           className={flex({
             flexDirection: 'column',
@@ -46,8 +46,8 @@ export default function Header() {
                 'none',
                 'width 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
               ],
-              '.header-interaction-group[data-interacted="true"] &': {
-                width: ['full', '480px'],
+              '.header-scroll-group[data-scrolled="true"] &': {
+                width: ['full', '296px'],
               },
             })}
           >
@@ -80,7 +80,7 @@ export default function Header() {
             height: '48px',
           })}
         />
-      </HeaderInteractionController>
+      </HeaderScrollController>
       <MobileSearchOverlay />
     </SearchProvider>
   );

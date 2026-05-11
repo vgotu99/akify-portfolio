@@ -47,7 +47,7 @@ export default function Header() {
                 'width 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
               ],
               '.header-scroll-group[data-scrolled="true"] &': {
-                width: ['full', '296px'],
+                width: ['full', '480px'],
               },
             })}
           >

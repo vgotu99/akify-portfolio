@@ -10,6 +10,7 @@ interface ResponsiveImageProps extends ImageProps {
   sizes: string;
   aspectRatio: number;
   className?: string;
+  objectFit?: React.CSSProperties['objectFit'];
 }
 
 export default function ResponsiveImage({
@@ -18,6 +19,7 @@ export default function ResponsiveImage({
   sizes,
   aspectRatio,
   className,
+  objectFit = 'cover',
   ...props
 }: ResponsiveImageProps) {
   return (
@@ -40,7 +42,7 @@ export default function ResponsiveImage({
         alt={alt}
         fill
         sizes={sizes}
-        className={css({ objectFit: 'cover' })}
+        style={{ objectFit }}
         {...props}
       />
     </div>

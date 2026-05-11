@@ -9,16 +9,19 @@ export interface UnifiedSuggestionsData {
   modelSuggestions: Array<ModelSuggestion>;
 }
 
-export interface BrandSuggestion {
-  text: string;
+export interface BrandSuggestion extends BaseSuggestion {
   type: 'brand';
-  id: string;
-  brandNameKo: string;
 }
 
-export interface ModelSuggestion {
+export interface ModelSuggestion extends BaseSuggestion {
+  type: 'product';
+  brandName: string;
+  categoryKorName: string;
+  categoryId: number;
+}
+
+interface BaseSuggestion {
   text: string;
-  type: 'model';
   id: string;
   brandId: number;
   brandNameKo: string;

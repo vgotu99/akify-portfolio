@@ -1,4 +1,8 @@
 import Script from 'next/script';
+import {
+  UTM_KEY_MED,
+  UTM_KEY_SRC,
+} from '@/src/entities/analytics/lib/constants';
 
 export default function GoogleAnalytics() {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -19,8 +23,8 @@ export default function GoogleAnalytics() {
 
         var params = new URLSearchParams(window.location.search);
         var cid = params.get('_cid');
-        var src = params.get('utm_source');
-        var med = params.get('utm_medium');
+        var src = params.get('${UTM_KEY_SRC}');
+        var med = params.get('${UTM_KEY_MED}');
         var cnt = params.get('utm_content');
         var cmp = params.get('utm_campaign');
         var trm = params.get('utm_term');

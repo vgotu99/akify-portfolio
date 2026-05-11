@@ -1,6 +1,9 @@
 import TransactionItemTailingText from '@/src/entities/merchandise/detail/ui/transaction-item-tailing-text';
 import { formatNumberWithComma } from '@/src/entities/merchandise/shared/lib/formats';
-import type { DeliveryInfoResponse } from '@/src/entities/merchandise/shared/model/types';
+import type {
+  DeliveryInfoResponse,
+  MerchandiseRegions,
+} from '@/src/entities/merchandise/shared/model/types';
 import SemanticChip from '@/src/entities/merchandise/shared/ui/semantic-chip';
 import IconBox from '@/src/shared/ui/icons/icon-box';
 import IconDirections from '@/src/shared/ui/icons/icon-directions';
@@ -17,7 +20,7 @@ type BooleanType = 'delivery' | 'exchange' | 'partChange';
 type TransactionItemProps =
   | { type: BooleanType; value: boolean }
   | { type: DeliveryFeeType; value: DeliveryInfoResponse }
-  | { type: RegionsType; value: Array<string> | null };
+  | { type: RegionsType; value: MerchandiseRegions };
 
 export default function TransactionItem(props: TransactionItemProps) {
   const { icon: IconComponent, text, tailing } = formatProps(props);
@@ -86,7 +89,7 @@ const formatTailing = (props: TransactionItemProps) => {
         })}
       >
         {value.map((v) => (
-          <SemanticChip key={v} variant={type} value={v} />
+          <SemanticChip key={v.id} variant={type} value={v.name} />
         ))}
       </div>
     ) : (

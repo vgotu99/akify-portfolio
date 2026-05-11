@@ -43,7 +43,10 @@ export default function TitleSectionMobile({
         />
         <CategoryGroup
           variant="detail"
-          value={merchandiseDetail.data.modelResponse.effectTypes[0]}
+          value={
+            merchandiseDetail.data.modelResponse.subCategoryInfos[0]
+              .subCategoryKorName
+          }
         />
       </div>
       <CountItemGroup>

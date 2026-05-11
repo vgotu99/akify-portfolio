@@ -1,18 +1,23 @@
+import { Fragment } from 'react/jsx-runtime';
 import type { FormattedImages } from '@/src/shared/lib/types';
 import type { ImageSliderVariant } from '@/src/shared/ui/image-slider';
 import ImageSliderInfo from '@/src/shared/ui/image-slider/image-slider-info';
 import ImageSliderItem from '@/src/shared/ui/image-slider/image-slider-item';
-import ImageSliderLink from '@/src/shared/ui/image-slider/image-slider-link';
 import { cva, cx } from '@/styled-system/css';
 
 interface ImageSliderListProps {
   variant: ImageSliderVariant;
   images: FormattedImages;
+  LinkComponent?: React.ElementType<{
+    href: string;
+    children: React.ReactNode;
+  }>;
 }
 
 export default function ImageSliderList({
   variant,
   images,
+  LinkComponent = Fragment,
 }: ImageSliderListProps) {
   const isVariantDetail = variant === 'detail';
 
@@ -21,7 +26,7 @@ export default function ImageSliderList({
 
     return (
       <div key={imageKey} className={cx('group', styleVariant({ variant }))}>
-        <ImageSliderLink href={href}>
+        <LinkComponent href={href ?? ''}>
           <ImageSliderItem
             variant={variant}
             src={src}
@@ -31,7 +36,7 @@ export default function ImageSliderList({
           {!isVariantDetail && (
             <ImageSliderInfo title={title} subtitle={subtitle} />
           )}
-        </ImageSliderLink>
+        </LinkComponent>
       </div>
     );
   });

@@ -4,6 +4,8 @@ import LinkButton from '@/src/shared/ui/link-button';
 import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: '404',
   robots: {

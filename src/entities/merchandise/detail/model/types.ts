@@ -1,6 +1,5 @@
 import type {
   BaseMerchandise,
-  MerchandiseEffectTypes,
   MerchandiseIsUnbrandedOrCustom,
 } from '@/src/entities/merchandise/shared/model/types';
 import type { BaseApiResponse } from '@/src/shared/lib/types';
@@ -19,6 +18,14 @@ export interface MerchandiseDetailDataModelResponse {
   brandId: number;
   brandName: string;
   brandKorName: string;
-  effectTypes: MerchandiseEffectTypes;
+  mainCategory: string;
+  mainCategoryId: number;
+  modelImageUrl: string | null;
+  subCategoryInfos: Array<SubCategoryInfo>;
   isUnbrandedOrCustom: MerchandiseIsUnbrandedOrCustom;
+}
+
+export interface SubCategoryInfo {
+  subCategoryId: number;
+  subCategoryKorName: string;
 }

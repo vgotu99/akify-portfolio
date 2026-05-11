@@ -1,15 +1,21 @@
 import Script from 'next/script';
+import {
+  ATTR_KEY_MED,
+  ATTR_KEY_SRC,
+  UTM_KEY_MED,
+  UTM_KEY_SRC,
+} from '@/src/entities/analytics/lib/constants';
 
 export default function UtmCapture() {
   return (
     <Script id="akify-attr-capture" strategy="beforeInteractive">
       {`
         (function () {
-          var KEY_SRC = 'akify_attr_src';
-          var KEY_MED = 'akify_attr_med';
+          var KEY_SRC = '${ATTR_KEY_SRC}';
+          var KEY_MED = '${ATTR_KEY_MED}';
           var url = new URL(window.location.href);
-          var utmSrc = url.searchParams.get('utm_source');
-          var utmMed = url.searchParams.get('utm_medium');
+          var utmSrc = url.searchParams.get('${UTM_KEY_SRC}');
+          var utmMed = url.searchParams.get('${UTM_KEY_MED}');
           
           if (utmSrc) {
             sessionStorage.setItem(KEY_SRC, utmSrc);
@@ -24,21 +30,21 @@ export default function UtmCapture() {
           
           try {
             var refHost = new URL(ref).hostname;
-            if (/akify\\\\.io$/.test(refHost)) return;
+            if (/akify\\.io$/.test(refHost)) return;
             
-            if (/(^|\\\\.)google\\\\./.test(refHost)) { 
+            if (/(^|\\.)google\\./.test(refHost)) { 
               sessionStorage.setItem(KEY_SRC, 'google'); 
               sessionStorage.setItem(KEY_MED, 'organic'); 
             }
-            else if (/naver\\\\.com$/.test(refHost)) { 
+            else if (/naver\\.com$/.test(refHost)) { 
               sessionStorage.setItem(KEY_SRC, 'naver'); 
               sessionStorage.setItem(KEY_MED, 'organic'); 
             }
-            else if (/daum\\\\.net$/.test(refHost)) { 
+            else if (/daum\\.net$/.test(refHost)) { 
               sessionStorage.setItem(KEY_SRC, 'daum'); 
               sessionStorage.setItem(KEY_MED, 'organic'); 
             }
-            else if (/bing\\\\.com$/.test(refHost)) { 
+            else if (/bing\\.com$/.test(refHost)) { 
               sessionStorage.setItem(KEY_SRC, 'bing'); 
               sessionStorage.setItem(KEY_MED, 'organic'); 
             }

@@ -36,16 +36,19 @@ export default function MerchandiseDetailMobilePage({
         />
         <Seperator />
         <ModelSection
-          // modelImage={merchandiseDetail.data.writer.profileImage}
+          modelImageUrl={merchandiseDetail.data.modelResponse.modelImageUrl}
           brandName={merchandiseDetail.data.modelResponse.brandName}
           modelName={merchandiseDetail.data.modelResponse.modelName}
-          effectType={merchandiseDetail.data.modelResponse.effectTypes[0]}
+          subCategoryKorName={
+            merchandiseDetail.data.modelResponse.subCategoryInfos[0]
+              .subCategoryKorName
+          }
         />
         <Seperator />
         <DescriptionSection description={merchandiseDetail.data.description} />
         <Seperator />
         <SellerSection
-          profileImage={merchandiseDetail.data.writer.profileImage}
+          profileImageUrl={merchandiseDetail.data.writer.profileImage}
           nickname={merchandiseDetail.data.writer.nickname}
         />
       </div>

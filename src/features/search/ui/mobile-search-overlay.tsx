@@ -10,8 +10,8 @@ export default function MobileSearchOverlay() {
     <MobileSearchOverlayController>
       <div
         style={{ backdropFilter: 'blur(25px)' }}
-        className={css({
-          display: ['block', 'none'],
+        className={flex({
+          display: ['flex', 'none'],
           visibility: ['visible', 'hidden'],
           position: 'fixed',
           top: 0,
@@ -19,29 +19,33 @@ export default function MobileSearchOverlay() {
           width: '100dvw',
           height: '100dvh',
           zIndex: 100,
+          flexDirection: 'column',
           background: 'colors.surface.alphaWhiteStrong',
           paddingTop: '8',
+          paddingX: '16',
+          overflow: 'hidden',
         })}
       >
         <div
           className={flex({
-            flexDirection: 'column',
-            alignItems: 'center',
             width: 'full',
-            paddingX: '16',
+            alignItems: 'center',
+            gap: '8',
+            paddingY: '8',
+            flexShrink: 0,
           })}
         >
-          <div
-            className={flex({
-              width: 'full',
-              alignItems: 'center',
-              gap: '8',
-              paddingY: '8',
-            })}
-          >
-            <HeaderSearchBar variant="mobile" />
-            <MobileSearchOverlayCloseButton />
-          </div>
+          <HeaderSearchBar variant="mobile" />
+          <MobileSearchOverlayCloseButton />
+        </div>
+        <div
+          className={css({
+            flex: 1,
+            width: 'full',
+            overflowY: 'auto',
+            overscrollBehaviorY: 'contain',
+          })}
+        >
           <HeaderUnifiedSuggestionsMenu variant="mobile" />
         </div>
       </div>

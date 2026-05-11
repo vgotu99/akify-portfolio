@@ -1,4 +1,5 @@
 import type { BannerListData } from '@/src/entities/banner/model/types';
+import ImageSliderUtmLink from '@/src/entities/banner/ui/image-slider-utm-link';
 import { formatBaseAlt, formatImage } from '@/src/shared/lib/formats';
 import ImageSlider from '@/src/shared/ui/image-slider';
 import { flex } from '@/styled-system/patterns';
@@ -22,5 +23,11 @@ export default function HeroBanner({ bannerListData }: HeroBannerProps) {
     return formattedImagesWithInfo;
   });
 
-  return <ImageSlider variant="hero" images={images} />;
+  return (
+    <ImageSlider
+      variant="hero"
+      images={images}
+      LinkComponent={ImageSliderUtmLink}
+    />
+  );
 }

@@ -25,16 +25,16 @@ export default function HeaderUnifiedSuggestionsMenuItem({
   const router = useRouter();
   const { query } = useSearchState();
   const { setIsMobileSearchOpen } = useSearchActions();
-  const formattedValue = foramtValue(value);
-  const highlightedText = highlightText(formattedValue, query);
-  const typeLabel = TYPE_MAP[value.type];
+  const text = value.text;
+  const typeLabel = value.type === 'brand' ? '브랜드' : value.categoryKorName;
+  const highlightedText = highlightText(text, query);
 
   const handleNavigation = () => {
     if (variant === 'mobile') {
       setIsMobileSearchOpen(false);
     }
 
-    router.push(`/search?q=${encodeURIComponent(formattedValue)}`);
+    router.push(`/search?q=${encodeURIComponent(text)}`);
   };
 
   return (
@@ -83,12 +83,6 @@ export default function HeaderUnifiedSuggestionsMenuItem({
   );
 }
 
-const foramtValue = (value: BrandSuggestion | ModelSuggestion) => {
-  if (value.type === 'brand') return value.text;
-
-  return `${value.brandName} ${value.text}`;
-};
-
 const highlightText = (text: string, highlight: string) => {
   const trimedHighlight = highlight.trim();
 
@@ -100,16 +94,15 @@ const highlightText = (text: string, highlight: string) => {
 
   return parts.map((part, index) =>
     index % 2 === 1 ? (
-      <span key={part} className={css({ color: 'colors.text.highlight' })}>
+      <span
+        // biome-ignore lint/suspicious/noArrayIndexKey: part만 key로 사용할 경우 충돌 에러가 발생하여 part와 index를 조합하여 key에 할당
+        key={`${part}-${index}`}
+        className={css({ color: 'colors.text.highlight' })}
+      >
         {part}
       </span>
     ) : (
       part
     ),
   );
-};
-
-const TYPE_MAP = {
-  brand: '브랜드',
-  model: '모델',
 };

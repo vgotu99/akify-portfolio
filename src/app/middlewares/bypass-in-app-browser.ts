@@ -12,7 +12,7 @@ export const bypassInAppBrowserMiddleware = (request: NextRequest) => {
   const { os, browser } = userAgent(request);
   const osName = os.name?.toLowerCase() || '';
   const browserName = browser.name?.toLowerCase() || '';
-
+  const currentUrl = request.url;
   const isInAppBrowser = IN_APP_REGEX.test(browserName);
 
   if (!isInAppBrowser) return null;
@@ -21,5 +21,5 @@ export const bypassInAppBrowserMiddleware = (request: NextRequest) => {
 
   if (!getRedirectUrl) return null;
 
-  return NextResponse.redirect(getRedirectUrl('https://web.akify.io'));
+  return NextResponse.redirect(getRedirectUrl(currentUrl));
 };

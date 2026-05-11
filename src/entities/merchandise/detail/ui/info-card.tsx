@@ -46,7 +46,7 @@ export default function InfoCard(props: InfoCardProps) {
             alt={alt}
             sizes="48px"
             aspectRatio={ASPECT_RATIO_MAP[variant]}
-            objectFit="contain"
+            objectFit={variant === 'model' ? 'contain' : 'cover'}
             className={styleVariant({ imageVariant: variant })}
           />
         )}

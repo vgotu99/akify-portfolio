@@ -52,6 +52,8 @@ export const getBridgeUrl = async (targetPath: string): Promise<string> => {
     params.set('_cid', clientId);
   }
 
+  params.set('intent', 'open_app');
+
   const queryString = params.toString();
   return `${BRIDGE_WEB_BASE_URL}${targetPath}${queryString ? `?${queryString}` : ''}`;
 };

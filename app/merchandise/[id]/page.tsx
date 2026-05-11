@@ -1,7 +1,24 @@
 import type { Metadata, ResolvingMetadata } from 'next';
 import { fetchMerchandiseDetail } from '@/src/entities/merchandise/detail/model/apis';
+import { fetchInitialMerchandiseList } from '@/src/entities/merchandise/list/model/apis';
 import MerchandiseDetailMobilePage from '@/src/views/merchandise-detail/merchandise-detail-mobile-page';
 import MerchandiseDetailPage from '@/src/views/merchandise-detail/merchandise-detail-page';
+
+export const revalidate = 1800;
+
+export const generateStaticParams = async () => {
+  try {
+    const list = await fetchInitialMerchandiseList();
+
+    return list.data.posts.map((post) => ({
+      id: post.id.toString(),
+    }));
+  } catch (error) {
+    console.error('[generateStaticParams] 최신 상품 목록 로딩 실패:', error);
+
+    return [];
+  }
+};
 
 interface MerchandiseDetailProps {
   params: Promise<{ id: string }>;

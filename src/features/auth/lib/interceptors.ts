@@ -1,17 +1,38 @@
-import { cookies } from 'next/headers';
-import { getAuthTokens } from '@/src/features/auth/lib/tokens';
+import axios from 'axios';
+import { getAnonToken } from '@/src/features/auth/lib/token';
 import { httpClient } from '@/src/shared/lib/http-client';
 
-httpClient.interceptors.request.use(
-  async (config) => {
-    const cookieStore = await cookies();
-    const { accessToken } = getAuthTokens(cookieStore);
+const retriedConfigs = new WeakSet<object>();
 
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
+const isUnauthorized = (error: unknown): boolean =>
+  axios.isAxiosError(error) && error.response?.status === 401;
+
+httpClient.interceptors.request.use(async (config) => {
+  const token = await getAnonToken();
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
+
+httpClient.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const config = error?.config;
+    if (isUnauthorized(error) && config && !retriedConfigs.has(config)) {
+      retriedConfigs.add(config);
+
+      const freshToken = await getAnonToken(true);
+
+      if (freshToken) {
+        config.headers.Authorization = `Bearer ${freshToken}`;
+
+        return httpClient(config);
+      }
     }
 
-    return config;
+    return Promise.reject(error);
   },
-  (error) => Promise.reject(error),
 );

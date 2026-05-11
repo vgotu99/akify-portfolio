@@ -38,8 +38,8 @@ export default function HeaderUnifiedSuggestionsMenu({
         css({
           position: [, 'relative'],
           top: [, '-5px'],
-          left: [, '3px'],
-          width: ['full', '420px'],
+          left: [, '19px'],
+          width: ['full', '456px'],
           paddingY: [, '8'],
           paddingX: [, '12'],
           borderWidth: ['none', 'xlight'],
@@ -53,7 +53,7 @@ export default function HeaderUnifiedSuggestionsMenu({
             'width 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
           ],
           '.header-scroll-group[data-scrolled="true"] &': {
-            width: '260px',
+            width: '296px',
           },
         }),
         styleVariant({ variant }),

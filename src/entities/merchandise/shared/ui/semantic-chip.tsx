@@ -8,12 +8,12 @@ import { css, cva, cx } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 type BooleanVariant = 'delivery' | 'exchange' | 'partChange' | 'custom';
-type StringVariant = 'effectTypes' | 'regions';
+type RegionsVariant = 'regions';
 type ConditionVariant = 'condition';
 
 type SemanticChipProps =
   | { variant: BooleanVariant; value: boolean }
-  | { variant: StringVariant; value: string }
+  | { variant: RegionsVariant; value: string }
   | { variant: ConditionVariant; value: MerchandiseCondition };
 
 export default function SemanticChip(props: SemanticChipProps) {
@@ -86,7 +86,6 @@ const formatProps = (props: SemanticChipProps): FormattedProps => {
         style: 'condition',
       };
 
-    case 'effectTypes':
     case 'regions':
       return {
         text: value,

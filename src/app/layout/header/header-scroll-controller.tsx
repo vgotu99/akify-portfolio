@@ -1,19 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import {
-  useSearchActions,
-  useSearchState,
-} from '@/src/features/search/model/context';
 
-export default function HeaderInteractionController({
+export default function HeaderScrollController({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isFocused } = useSearchState();
-  const { setIsFocused } = useSearchActions();
   const lastScrollYRef = useRef(0);
   const tickingRef = useRef(false);
 
@@ -25,7 +19,6 @@ export default function HeaderInteractionController({
 
       const scrollDownAction = () => {
         setIsScrolled(true);
-        setIsFocused(false);
       };
 
       const scrollUpAction = () => {
@@ -46,13 +39,10 @@ export default function HeaderInteractionController({
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [setIsFocused]);
+  }, []);
 
   return (
-    <div
-      className="header-interaction-group"
-      data-interacted={isScrolled && !isFocused}
-    >
+    <div className="header-scroll-group" data-scrolled={isScrolled}>
       {children}
     </div>
   );

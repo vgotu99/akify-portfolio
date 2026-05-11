@@ -1,5 +1,4 @@
-import type { NextRequest } from 'next/server';
-import { authMiddleware } from '@/src/app/middlewares/auth';
+import { type NextRequest, NextResponse } from 'next/server';
 import { bypassInAppBrowserMiddleware } from '@/src/app/middlewares/bypass-in-app-browser';
 
 export const proxy = async (request: NextRequest) => {
@@ -7,7 +6,7 @@ export const proxy = async (request: NextRequest) => {
 
   if (bypassInAppBrowserResponse) return bypassInAppBrowserResponse;
 
-  return await authMiddleware(request);
+  return NextResponse.next();
 };
 
 export const config = {

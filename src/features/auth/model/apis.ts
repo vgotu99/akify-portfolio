@@ -1,20 +1,11 @@
 import axios from 'axios';
 import type { AnonymousTokenResponse } from '@/src/features/auth/model/types';
 
-export const getGuestToken = async () => {
+export const issueAnonToken = async (deviceUuid: string) => {
   const { data } = await axios.post<AnonymousTokenResponse>(
     `${process.env.API_URL}/auth/anonymous`,
-    { deviceUuid: crypto.randomUUID() },
+    { deviceUuid },
   );
 
-  return data.data;
-};
-
-export const reissueToken = async (refreshToken: string) => {
-  const { data } = await axios.post<AnonymousTokenResponse>(
-    `${process.env.API_URL}/auth/reissue`,
-    { refreshToken },
-  );
-
-  return data.data;
+  return data.data.accessToken;
 };

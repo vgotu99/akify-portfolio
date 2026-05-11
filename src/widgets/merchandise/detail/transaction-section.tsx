@@ -1,13 +1,16 @@
 import DetailSection from '@/src/entities/merchandise/detail/ui/detail-section';
 import DetailSectionTitle from '@/src/entities/merchandise/detail/ui/detail-section-title';
 import TransactionItem from '@/src/entities/merchandise/detail/ui/transaction-item';
-import type { DeliveryInfoResponse } from '@/src/entities/merchandise/shared/model/types';
+import type {
+  DeliveryInfoResponse,
+  MerchandiseRegions,
+} from '@/src/entities/merchandise/shared/model/types';
 import { grid } from '@/styled-system/patterns';
 
 interface TransactionSectionProps {
   delivery: boolean;
   deliveryInfo: DeliveryInfoResponse;
-  regions: Array<string> | null;
+  regions: MerchandiseRegions;
   exchange: boolean;
   partChange: boolean;
 }

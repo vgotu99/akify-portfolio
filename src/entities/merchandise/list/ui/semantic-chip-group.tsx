@@ -1,11 +1,13 @@
-import type { MerchandiseCondition } from '@/src/entities/merchandise/shared/model/types';
+import type {
+  MerchandiseCondition,
+  MerchandiseRegions,
+} from '@/src/entities/merchandise/shared/model/types';
 import SemanticChip from '@/src/entities/merchandise/shared/ui/semantic-chip';
 import { css, cx } from '@/styled-system/css';
 
 interface SemanticChipGroupProps {
-  effectTypes: Array<string>;
   condition: MerchandiseCondition;
-  regions: Array<string> | null;
+  regions: MerchandiseRegions;
   delivery: boolean;
   exchange: boolean;
   custom: boolean;
@@ -13,7 +15,6 @@ interface SemanticChipGroupProps {
 }
 
 export default function SemanticChipGroup({
-  effectTypes,
   condition,
   regions,
   delivery,
@@ -31,17 +32,10 @@ export default function SemanticChipGroup({
         }),
       )}
     >
-      {effectTypes.map((effectType) => (
-        <SemanticChip
-          key={effectType}
-          variant="effectTypes"
-          value={effectType}
-        />
-      ))}
       <SemanticChip variant="condition" value={condition} />
       {regions &&
         regions.map((region) => (
-          <SemanticChip key={region} variant="regions" value={region} />
+          <SemanticChip key={region.id} variant="regions" value={region.name} />
         ))}
       <SemanticChip variant="delivery" value={delivery} />
       <SemanticChip variant="exchange" value={exchange} />

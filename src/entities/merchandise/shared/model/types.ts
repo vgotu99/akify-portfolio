@@ -8,7 +8,7 @@ export interface BaseMerchandise {
   exchangeAvailable: boolean;
   deliveryAvailable: boolean;
   localDealAvailable: boolean;
-  regions: Array<string> | null;
+  regions: MerchandiseRegions;
   partChange: boolean;
   createdAt: string;
   bumpedAt: string;
@@ -40,7 +40,8 @@ export type MerchandiseCondition =
   | 'NORMAL'
   | 'DEFECTIVE';
 
-export type MerchandiseSaleStatus = 'ON_SALE' | 'SOLD_OUT' | 'RESERVED';
+export type MerchandiseRegion = { id: number; name: string };
+export type MerchandiseRegions = Array<MerchandiseRegion> | null;
 
-export type MerchandiseEffectTypes = Array<string>;
+export type MerchandiseSaleStatus = 'ON_SALE' | 'SOLD_OUT' | 'RESERVED';
 export type MerchandiseIsUnbrandedOrCustom = boolean;

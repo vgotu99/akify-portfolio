@@ -7,4 +7,5 @@ export default function ImageServerPreconnects() {
 const IMAGE_SERVERS = [
   process.env.IMAGE_STORAGE_URL,
   process.env.ASSETS_IMAGE_STORAGE_URL,
+  process.env.DEV_IMAGE_STORAGE_URL,
 ].filter(Boolean);

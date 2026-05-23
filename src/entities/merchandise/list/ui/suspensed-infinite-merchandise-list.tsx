@@ -1,13 +1,19 @@
 'use client';
 
 import { Suspense } from 'react';
-import { useInfiniteMerchandise } from '@/src/entities/merchandise/list/model/hooks';
+import { fetchMoreMerchandiseAction } from '@/src/entities/merchandise/list/model/actions';
+import type { MerchandisePost } from '@/src/entities/merchandise/list/model/types';
 import InfiniteMerchandiseList from '@/src/entities/merchandise/list/ui/infinite-merchandise-list';
 import MerchandiseListSkeleton from '@/src/entities/merchandise/list/ui/merchandise-list-skeleton';
+import { useInfiniteScroll } from '@/src/shared/lib/use-infinite-scroll';
 import { flex } from '@/styled-system/patterns';
 
 export default function SuspensedInfiniteMerchandiseList() {
-  const { promisedPostPages, hasMore, sentinelRef } = useInfiniteMerchandise();
+  const { promisedPostPages, hasMore, sentinelRef } =
+    useInfiniteScroll<MerchandisePost>({
+      fetcher: fetchMoreMerchandiseAction,
+      cacheKeyPrefix: 'merchandise',
+    });
 
   return (
     <>

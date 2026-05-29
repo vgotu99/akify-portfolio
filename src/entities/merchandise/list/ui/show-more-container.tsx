@@ -3,19 +3,28 @@
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import ShowMoreButton from '@/src/entities/merchandise/list/ui/show-more-button';
-import SuspensedInfiniteMerchandiseList from '@/src/entities/merchandise/list/ui/suspensed-infinite-merchandise-list';
+import SuspensedInfiniteMerchandiseList, {
+  type MerchandiseInfiniteScrollProps,
+} from '@/src/entities/merchandise/list/ui/suspensed-infinite-merchandise-list';
+import { getCacheKey } from '@/src/shared/lib/ttl-cache';
 import { flex } from '@/styled-system/patterns';
 
 const showMoreCache = new Map<string, boolean>();
 
-export default function ShowMoreContainer() {
+type ShowMoreContainerProps = MerchandiseInfiniteScrollProps;
+
+export default function ShowMoreContainer({
+  infiniteScroll,
+}: ShowMoreContainerProps) {
   const pathname = usePathname();
+  const cacheKey = getCacheKey(infiniteScroll.cacheKeyPrefix, pathname);
+
   const [showMore, setShowMore] = useState(
-    () => showMoreCache.get(pathname) || false,
+    () => showMoreCache.get(cacheKey) || false,
   );
 
   const handleShowMore = () => {
-    showMoreCache.set(pathname, true);
+    showMoreCache.set(cacheKey, true);
     setShowMore(true);
   };
 
@@ -31,5 +40,5 @@ export default function ShowMoreContainer() {
       </div>
     );
 
-  return <SuspensedInfiniteMerchandiseList />;
+  return <SuspensedInfiniteMerchandiseList infiniteScroll={infiniteScroll} />;
 }

@@ -1,8 +1,7 @@
 import type { BannerListData } from '@/src/entities/banner/model/types';
 import ImageSliderUtmLink from '@/src/entities/banner/ui/image-slider-utm-link';
-import { formatBaseAlt, formatImage } from '@/src/shared/lib/formats';
+import { formatBaseAlt, formatImage } from '@/src/shared/lib/utils';
 import ImageSlider from '@/src/shared/ui/image-slider';
-import { flex } from '@/styled-system/patterns';
 
 interface HeroBannerProps {
   bannerListData: BannerListData;

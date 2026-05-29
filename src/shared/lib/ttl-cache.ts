@@ -26,3 +26,7 @@ export const createTTLCache = <T>(): TTLCache<T> => {
 
   return { get, set };
 };
+
+export const getCacheKey = (cacheKeyPrefix: string, pathname: string) => {
+  return `${cacheKeyPrefix}:${pathname}`;
+};

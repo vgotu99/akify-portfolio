@@ -1,7 +1,10 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { fetchUnifiedSuggestions } from '@/src/features/search/model/apis';
+import {
+  fetchSearchedMerchandiseList,
+  fetchUnifiedSuggestions,
+} from '@/src/features/search/model/apis';
 
 export const searchAction = async (formData: FormData) => {
   const q = formData.get('q')?.toString().trim().replace(/\s+/g, ' ');
@@ -9,6 +12,15 @@ export const searchAction = async (formData: FormData) => {
   if (!q) return;
 
   redirect(`/search?q=${encodeURIComponent(q)}`);
+};
+
+export const fetchMoreSearchedMerchandiseAction = async (
+  query: string,
+  page: number,
+) => {
+  const response = await fetchSearchedMerchandiseList(query, page);
+
+  return response.data.posts;
 };
 
 export const fetchUnifiedSuggestionsAction = async (

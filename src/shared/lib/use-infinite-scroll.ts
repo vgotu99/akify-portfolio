@@ -1,8 +1,9 @@
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffectEvent, useRef, useState } from 'react';
-import { createTTLCache } from '@/src/shared/lib/ttl-cache';
+import { createTTLCache, getCacheKey } from '@/src/shared/lib/ttl-cache';
+import { hasNextPage } from '@/src/shared/lib/utils';
 
-export interface InfiniteListCacheData<T> {
+interface InfiniteListCacheData<T> {
   promisedPostPages: Promise<T[]>[];
   hasMore: boolean;
   pageCount: number;
@@ -10,7 +11,7 @@ export interface InfiniteListCacheData<T> {
 
 const infiniteListCache = createTTLCache<InfiniteListCacheData<unknown>>();
 
-interface UseInfiniteScrollOptions<T> {
+export interface UseInfiniteScrollOptions<T> {
   fetcher: (page: number) => Promise<T[]>;
   cacheKeyPrefix: string;
   pageSize?: number;
@@ -22,7 +23,7 @@ export const useInfiniteScroll = <T>({
   pageSize = 16,
 }: UseInfiniteScrollOptions<T>) => {
   const pathname = usePathname();
-  const cacheKey = `${cacheKeyPrefix}:${pathname}`;
+  const cacheKey = getCacheKey(cacheKeyPrefix, pathname);
   const fetcherRef = useRef(fetcher);
   const latestCacheKeyRef = useRef(cacheKey);
 
@@ -82,7 +83,7 @@ export const useInfiniteScroll = <T>({
     async (nextPage: number) => {
       try {
         const newPageData = await fetcherRef.current(nextPage);
-        const hasNext = newPageData.length >= pageSize;
+        const hasNext = hasNextPage(newPageData.length, pageSize);
 
         infiniteListCache.set(cacheKey, {
           ...getCachedOrDefault(cacheKey),

@@ -1,18 +1,29 @@
 'use client';
 
 import { Suspense } from 'react';
-import { fetchMoreMerchandiseAction } from '@/src/entities/merchandise/list/model/actions';
 import type { MerchandisePost } from '@/src/entities/merchandise/list/model/types';
 import InfiniteMerchandiseList from '@/src/entities/merchandise/list/ui/infinite-merchandise-list';
 import MerchandiseListSkeleton from '@/src/entities/merchandise/list/ui/merchandise-list-skeleton';
-import { useInfiniteScroll } from '@/src/shared/lib/use-infinite-scroll';
+import {
+  type UseInfiniteScrollOptions,
+  useInfiniteScroll,
+} from '@/src/shared/lib/use-infinite-scroll';
 import { flex } from '@/styled-system/patterns';
 
-export default function SuspensedInfiniteMerchandiseList() {
+export interface MerchandiseInfiniteScrollProps {
+  infiniteScroll: Omit<UseInfiniteScrollOptions<MerchandisePost>, 'pageSize'>;
+}
+
+export type SuspensedInfiniteMerchandiseListProps =
+  MerchandiseInfiniteScrollProps;
+
+export default function SuspensedInfiniteMerchandiseList({
+  infiniteScroll: { fetcher, cacheKeyPrefix },
+}: SuspensedInfiniteMerchandiseListProps) {
   const { promisedPostPages, hasMore, sentinelRef } =
     useInfiniteScroll<MerchandisePost>({
-      fetcher: fetchMoreMerchandiseAction,
-      cacheKeyPrefix: 'merchandise',
+      fetcher,
+      cacheKeyPrefix,
     });
 
   return (

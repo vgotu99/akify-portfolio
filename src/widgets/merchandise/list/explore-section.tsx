@@ -2,11 +2,14 @@ import type { MerchandiseListPosts } from '@/src/entities/merchandise/list/model
 import GridLayout from '@/src/entities/merchandise/list/ui/grid-layout';
 import MerchandiseCardVertical from '@/src/entities/merchandise/list/ui/merchandise-card-vertical';
 import ShowMoreContainer from '@/src/entities/merchandise/list/ui/show-more-container';
+import type { MerchandiseInfiniteScrollProps } from '@/src/entities/merchandise/list/ui/suspensed-infinite-merchandise-list';
+import NoResult from '@/src/features/search/ui/no-result';
+import { hasNextPage } from '@/src/shared/lib/utils';
 import TitleGroup from '@/src/shared/ui/title-group';
 import SemanticChipToggleController from '@/src/widgets/merchandise/list/semantic-chip-toggle-controller';
 import { css, cva, cx } from '@/styled-system/css';
 
-interface ExploreSectionProps {
+interface ExploreSectionProps extends MerchandiseInfiniteScrollProps {
   variant: 'main' | 'search';
   merchandiseListPosts: MerchandiseListPosts;
   q?: string;
@@ -15,12 +18,16 @@ interface ExploreSectionProps {
 export default function ExploreSection({
   variant,
   merchandiseListPosts,
+  infiniteScroll,
   q,
 }: ExploreSectionProps) {
   const isVariantSearch = variant === 'search';
   const searchTitle = isVariantSearch && q ? q : '';
   const title = isVariantSearch ? searchTitle : 'Explore';
   const subtitle = !isVariantSearch ? '다양한 악기 매물을 확인해보세요!' : '';
+  const initialPageSize = isVariantSearch ? 16 : 32;
+  const hasNext = hasNextPage(merchandiseListPosts.length, initialPageSize);
+  const hasNoResult = merchandiseListPosts.length === 0;
 
   return (
     <section
@@ -69,12 +76,16 @@ export default function ExploreSection({
           }
           variant={variant}
         >
-          <GridLayout>
-            {merchandiseListPosts.map((post) => (
-              <MerchandiseCardVertical key={post.id} merchandise={post} />
-            ))}
-            <ShowMoreContainer />
-          </GridLayout>
+          {hasNoResult ? (
+            <NoResult />
+          ) : (
+            <GridLayout>
+              {merchandiseListPosts.map((post) => (
+                <MerchandiseCardVertical key={post.id} merchandise={post} />
+              ))}
+              {hasNext && <ShowMoreContainer infiniteScroll={infiniteScroll} />}
+            </GridLayout>
+          )}
         </SemanticChipToggleController>
       </div>
     </section>

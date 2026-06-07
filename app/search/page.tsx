@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { fetchSearchedMerchandiseList } from '@/src/entities/merchandise/list/model/apis';
+import { fetchSearchedMerchandiseList } from '@/src/features/search/model/apis';
 import SearchPage from '@/src/views/search/search-page';
 
 interface SearchProps {

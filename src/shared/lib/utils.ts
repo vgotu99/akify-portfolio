@@ -21,3 +21,7 @@ export const formatImage = (image: string | ImageSrc, baseAlt: string) => {
 export const formatSearchTitle = (q: string) => {
   return `"${q}"의 검색 결과`;
 };
+
+export const hasNextPage = (newPageDataSize: number, pageSize: number) => {
+  return newPageDataSize >= pageSize;
+};

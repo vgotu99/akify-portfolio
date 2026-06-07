@@ -1,7 +1,7 @@
 import CategoryGroup from '@/src/entities/merchandise/detail/ui/category-group';
 import BrandName from '@/src/entities/merchandise/shared/ui/brand-name';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
-import { formatBaseAlt } from '@/src/shared/lib/formats';
+import { formatBaseAlt } from '@/src/shared/lib/utils';
 import IconChevronRight from '@/src/shared/ui/icons/icon-chevron-right';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
 import { css, cva } from '@/styled-system/css';

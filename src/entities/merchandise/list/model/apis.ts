@@ -24,20 +24,9 @@ export const fetchInitialMerchandiseList = async () => {
 };
 
 export const fetchInfiniteMerchandiseList = async (page: number) => {
-  const currentPage = page + 2;
+  const currentPage = page + 1;
 
   const res = await fetchMerchandiseList(currentPage, 16);
 
   return res;
-};
-
-export const fetchSearchedMerchandiseList = async (
-  keyword: string,
-  page: number,
-) => {
-  const { data } = await httpClient.get<MerchandiseListResponse>(
-    `/search/posts?page=${page}&keyword=${keyword}&size=16&sort=relevance`,
-  );
-
-  return data;
 };

@@ -1,4 +1,5 @@
 import type { BannerListResponse } from '@/src/entities/banner/model/types';
+import { fetchMoreMerchandiseAction } from '@/src/entities/merchandise/list/model/actions';
 import type { MerchandiseListResponse } from '@/src/entities/merchandise/list/model/types';
 import ExploreSection from '@/src/widgets/merchandise/list/explore-section';
 import HeroSection from '@/src/widgets/merchandise/list/hero-section';
@@ -23,6 +24,10 @@ export default function MainPage({
       <ExploreSection
         variant="main"
         merchandiseListPosts={merchandiseList.data.posts}
+        infiniteScroll={{
+          fetcher: fetchMoreMerchandiseAction,
+          cacheKeyPrefix: 'merchandise',
+        }}
       />
     </div>
   );

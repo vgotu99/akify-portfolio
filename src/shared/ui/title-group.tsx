@@ -1,4 +1,4 @@
-import { formatSearchTitle } from '@/src/shared/lib/formats';
+import { formatSearchTitle } from '@/src/shared/lib/utils';
 import { cva } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 

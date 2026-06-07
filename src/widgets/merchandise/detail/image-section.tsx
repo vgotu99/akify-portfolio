@@ -1,7 +1,7 @@
 import type { MerchandiseDetailDataModelResponse } from '@/src/entities/merchandise/detail/model/types';
 import type { MerchandiseSaleStatus } from '@/src/entities/merchandise/shared/model/types';
 import MerchandiseSaleStatusContainer from '@/src/entities/merchandise/shared/ui/merchandise-sale-status-container';
-import { formatBaseAlt, formatImages } from '@/src/shared/lib/formats';
+import { formatBaseAlt, formatImages } from '@/src/shared/lib/utils';
 import ImageSlider from '@/src/shared/ui/image-slider';
 
 export interface ImageSectionProps {

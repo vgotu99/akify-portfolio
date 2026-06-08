@@ -6,6 +6,7 @@ import Header from '@/src/app/layout/header';
 import { poppins, pretendard } from '@/src/app/style/fonts';
 import ChannelTalkProvider from '@/src/shared/ui/channel-talk-provider';
 import '@/src/features/auth/lib/interceptors';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import GoogleAnalytics from '@/src/app/analytics/google-analytics';
 import MetaPixel from '@/src/app/analytics/meta-pixel';
 import UtmCapture from '@/src/app/analytics/utm-capture';
@@ -63,6 +64,7 @@ export default function RootLayout({
         <ChannelTalkProvider />
         <MetaPixel />
         <GoogleAnalytics />
+        <SpeedInsights />
       </body>
     </html>
   );

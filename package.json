@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@channel.io/channel-web-sdk-loader": "^2.0.2",
+    "@vercel/speed-insights": "^2.0.0",
     "axios": "^1.13.2",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",

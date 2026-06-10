@@ -60,6 +60,7 @@ const adjustButton = () => {
 
 export default function ChannelTalkProvider() {
   const resizeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const observerRef = useRef<MutationObserver | null>(null);
 
   const handleResize = useCallback(() => {
     if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);
@@ -70,23 +71,44 @@ export default function ChannelTalkProvider() {
   }, []);
 
   useEffect(() => {
-    bootChannelTalk();
+    const bootCT = () => {
+      bootChannelTalk();
 
-    const observer = new MutationObserver((_, obs) => {
-      const isSuccess = adjustButton();
+      observerRef.current = new MutationObserver((_, obs) => {
+        const isSuccess = adjustButton();
 
-      if (isSuccess) {
-        adjustMessenger();
-        obs.disconnect();
-      }
-    });
+        if (isSuccess) {
+          adjustMessenger();
+          obs.disconnect();
+        }
+      });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+      observerRef.current.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    };
+
+    const handle = window.requestIdleCallback
+      ? window.requestIdleCallback(bootCT)
+      : null;
+
+    if (!window.requestIdleCallback) {
+      document.readyState === 'complete'
+        ? bootCT()
+        : window.addEventListener('load', bootCT, { once: true });
+    }
 
     window.addEventListener('resize', handleResize);
 
     return () => {
-      observer.disconnect();
+      if (handle !== null && window.cancelIdleCallback)
+        window.cancelIdleCallback(handle);
+
+      window.removeEventListener('load', bootCT);
+
+      if (observerRef.current) observerRef.current.disconnect();
+
       shutdownChannelTalk();
       window.removeEventListener('resize', handleResize);
       if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);

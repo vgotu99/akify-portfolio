@@ -4,4 +4,4 @@ export default function ImageServerPreconnector() {
   return <link rel="preconnect" href={IMAGE_SERVERS} />;
 }
 
-const IMAGE_SERVERS = process.env.IMAGE_PROXY_URL;
+const IMAGE_SERVERS = process.env.NEXT_PUBLIC_IMAGE_PROXY_URL;

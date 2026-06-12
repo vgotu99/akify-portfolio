@@ -10,7 +10,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import GoogleAnalytics from '@/src/app/analytics/google-analytics';
 import MetaPixel from '@/src/app/analytics/meta-pixel';
 import UtmCapture from '@/src/app/analytics/utm-capture';
-import ImageServerPreconnects from '@/src/app/layout/image-server-preconnects';
+import ImageServerPreconnector from '@/src/app/layout/image-server-preconnector';
 import { flex } from '@/styled-system/patterns';
 
 export const metadata: Metadata = {
@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${pretendard.variable} ${poppins.variable}`}>
       <head>
-        <ImageServerPreconnects />
+        <ImageServerPreconnector />
         <UtmCapture />
       </head>
       <body className={flex({ flexDirection: 'column', minHeight: '100dvh' })}>

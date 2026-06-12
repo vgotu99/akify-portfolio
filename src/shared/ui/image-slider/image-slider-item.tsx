@@ -94,7 +94,6 @@ const ItemImage = ({
       sizes={sizes}
       aspectRatio={imageAspectRatio}
       priority={priority}
-      unoptimized={!priority}
       quality={50}
       className={cx(imageVariantClass, displayClass)}
     />

@@ -20,6 +20,7 @@ export default function ResponsiveImage({
   aspectRatio,
   className,
   objectFit = 'cover',
+  priority,
   ...props
 }: ResponsiveImageProps) {
   return (
@@ -42,6 +43,8 @@ export default function ResponsiveImage({
         alt={alt}
         fill
         sizes={sizes}
+        priority={priority}
+        fetchPriority={priority ? 'high' : undefined}
         style={{ objectFit }}
         {...props}
       />

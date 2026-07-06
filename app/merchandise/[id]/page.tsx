@@ -6,7 +6,7 @@ import { withSoft404 } from '@/src/shared/ui/not-found';
 import MerchandiseDetailMobilePage from '@/src/views/merchandise-detail/merchandise-detail-mobile-page';
 import MerchandiseDetailPage from '@/src/views/merchandise-detail/merchandise-detail-page';
 
-export const revalidate = 1800;
+export const revalidate = false;
 
 export const generateStaticParams = async () => {
   try {

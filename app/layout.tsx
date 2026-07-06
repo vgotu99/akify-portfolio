@@ -4,12 +4,12 @@ import BottomBar from '@/src/app/layout/bottom-bar';
 import Footer from '@/src/app/layout/footer';
 import Header from '@/src/app/layout/header';
 import { poppins, pretendard } from '@/src/app/style/fonts';
-import ChannelTalkProvider from '@/src/shared/ui/channel-talk-provider';
+// import ChannelTalkProvider from '@/src/shared/ui/channel-talk-provider';
 import '@/src/features/auth/lib/interceptors';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import GoogleAnalytics from '@/src/app/analytics/google-analytics';
-import MetaPixel from '@/src/app/analytics/meta-pixel';
-import UtmCapture from '@/src/app/analytics/utm-capture';
+// import GoogleAnalytics from '@/src/app/analytics/google-analytics';
+// import MetaPixel from '@/src/app/analytics/meta-pixel';
+// import UtmCapture from '@/src/app/analytics/utm-capture';
 import ImageServerPreconnects from '@/src/app/layout/image-server-preconnects';
 import { flex } from '@/styled-system/patterns';
 
@@ -39,6 +39,11 @@ export const metadata: Metadata = {
       'naver-site-verification': '3b1b1bf076039e7bbd03becea5cfb55ad64252ad',
     },
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
+  referrer: 'no-referrer',
 };
 
 export default function RootLayout({
@@ -52,7 +57,7 @@ export default function RootLayout({
     <html lang="ko" className={`${pretendard.variable} ${poppins.variable}`}>
       <head>
         <ImageServerPreconnects />
-        <UtmCapture />
+        {/* <UtmCapture /> */}
       </head>
       <body className={flex({ flexDirection: 'column', minHeight: '100dvh' })}>
         <Header />
@@ -62,9 +67,9 @@ export default function RootLayout({
         {modal}
         <Footer />
         <BottomBar />
-        <ChannelTalkProvider />
-        <MetaPixel />
-        <GoogleAnalytics />
+        {/* <ChannelTalkProvider /> */}
+        {/* <MetaPixel /> */}
+        {/* <GoogleAnalytics /> */}
         <SpeedInsights />
       </body>
     </html>

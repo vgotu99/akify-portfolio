@@ -21,7 +21,7 @@ export interface MerchandiseDetailDataModelResponse {
   mainCategory: string;
   mainCategoryId: number;
   modelImageUrl: string | null;
-  subCategoryInfos: Array<SubCategoryInfo>;
+  subCategoryInfos: Array<SubCategoryInfo | undefined>;
   isUnbrandedOrCustom: MerchandiseIsUnbrandedOrCustom;
 }
 

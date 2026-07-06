@@ -41,7 +41,7 @@ export default function MerchandiseDetailMobilePage({
           modelName={merchandiseDetail.data.modelResponse.modelName}
           subCategoryKorName={
             merchandiseDetail.data.modelResponse.subCategoryInfos[0]
-              .subCategoryKorName
+              ?.subCategoryKorName || ''
           }
         />
         <Seperator />

@@ -1,32 +1,32 @@
-name: Sync to Deploy Repo
+# name: Sync to Deploy Repo
 
-on:
-  push:
-    branches:
-      - main
-      - develop
-      - develop-dev
+# on:
+#   push:
+#     branches:
+#       - main
+#       - develop
+#       - develop-dev
 
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    if: github.repository == 'JAMMERING/AKIFY_WEB'
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
+# jobs:
+#   sync:
+#     runs-on: ubuntu-latest
+#     if: github.repository == 'JAMMERING/AKIFY_WEB'
+#     env:
+#       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+#     steps:
+#       - name: Checkout Source Code
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+#           persist-credentials: false
 
-      - name: Rewrite Commit Author
-        run: |
-          git config user.name "dev-jammering"
-          git config user.email "dev@jammering.com"
-          git commit --amend --allow-empty --reset-author --no-edit
+#       - name: Rewrite Commit Author
+#         run: |
+#           git config user.name "dev-jammering"
+#           git config user.email "dev@jammering.com"
+#           git commit --amend --allow-empty --reset-author --no-edit
 
-      - name: Push to Deploy Repo
-        run: |
-          git remote add deploy "https://${{ secrets.DEPLOY_REPO_PAT }}@github.com/dev-jammering/AKIFY_WEB.git"
-          git push deploy HEAD:${{ github.ref_name }} --force
+#       - name: Push to Deploy Repo
+#         run: |
+#           git remote add deploy "https://${{ secrets.DEPLOY_REPO_PAT }}@github.com/dev-jammering/AKIFY_WEB.git"
+#           git push deploy HEAD:${{ github.ref_name }} --force

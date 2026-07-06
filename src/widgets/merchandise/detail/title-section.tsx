@@ -7,7 +7,6 @@ import CountItemGroup from '@/src/entities/merchandise/shared/ui/count-item-grou
 import MerchandiseTimeDisplay from '@/src/entities/merchandise/shared/ui/merchandise-time-display';
 import MerchandiseTitle from '@/src/entities/merchandise/shared/ui/merchandise-title';
 import Toast from '@/src/shared/ui/toast';
-import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 interface TitleSectionProps {
@@ -33,7 +32,7 @@ export default function TitleSection({ merchandiseDetail }: TitleSectionProps) {
         variant="detail"
         value={
           merchandiseDetail.data.modelResponse.subCategoryInfos[0]
-            .subCategoryKorName
+            ?.subCategoryKorName || ''
         }
       />
       <CountItemGroup>

@@ -7,9 +7,6 @@ export const fetchMerchandiseDetail = async (id: string) => {
     {
       fetchOptions: {
         cache: 'force-cache',
-        next: {
-          revalidate: 1800,
-        },
       },
     },
   );

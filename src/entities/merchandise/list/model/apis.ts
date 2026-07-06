@@ -7,9 +7,6 @@ const fetchMerchandiseList = async (page: number, size: number) => {
     {
       fetchOptions: {
         cache: 'force-cache',
-        next: {
-          revalidate: 1800,
-        },
       },
     },
   );

@@ -5,7 +5,7 @@ import { handleMetadataSoft404 } from '@/src/shared/lib/soft-404';
 import { withSoft404 } from '@/src/shared/ui/not-found';
 import MerchandiseDetailPage from '@/src/views/merchandise-detail/merchandise-detail-page';
 
-export const revalidate = 1800;
+export const revalidate = false;
 
 export const generateStaticParams = async () => {
   try {

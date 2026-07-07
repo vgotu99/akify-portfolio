@@ -10,7 +10,7 @@ import IconDirections from '@/src/shared/ui/icons/icon-directions';
 import IconExchange from '@/src/shared/ui/icons/icon-exchange';
 import IconTool from '@/src/shared/ui/icons/icon-tool';
 import IconTruckDelivery from '@/src/shared/ui/icons/icon-truck-delivery';
-import { css, cva } from '@/styled-system/css';
+import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
 
 type DeliveryFeeType = 'deliveryFee';

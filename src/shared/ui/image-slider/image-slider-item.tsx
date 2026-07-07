@@ -1,4 +1,5 @@
 import { getImageProps } from 'next/image';
+import { preload } from 'react-dom';
 import type { ImageSliderVariant } from '@/src/shared/ui/image-slider';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
 import { cva } from '@/styled-system/css';
@@ -40,7 +41,7 @@ export default function ImageSliderItem({
   const common = { alt, sizes, priority };
 
   const {
-    props: { srcSet: desktopSrcSet },
+    props: { srcSet: desktopSrcSet, src: desktopSrc },
   } = getImageProps({
     ...common,
     fill: true,
@@ -52,6 +53,21 @@ export default function ImageSliderItem({
     fill: true,
     src: src.mobile,
   });
+
+  if (priority) {
+    preload(desktopSrc, {
+      as: 'image',
+      imageSrcSet: desktopSrcSet,
+      imageSizes: sizes,
+      media: '(min-width: 800px)',
+    });
+    preload(mobileProps.src, {
+      as: 'image',
+      imageSrcSet: mobileProps.srcSet,
+      imageSizes: mobileProps.sizes,
+      media: '(max-width: 799px)',
+    });
+  }
 
   return (
     <div className={imageVariantClass}>

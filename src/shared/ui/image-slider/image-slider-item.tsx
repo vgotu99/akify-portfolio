@@ -1,6 +1,7 @@
+import { getImageProps } from 'next/image';
 import type { ImageSliderVariant } from '@/src/shared/ui/image-slider';
 import ResponsiveImage from '@/src/shared/ui/responsive-image';
-import { css, cva, cx } from '@/styled-system/css';
+import { cva } from '@/styled-system/css';
 
 interface ImageSliderItemProps {
   variant: ImageSliderVariant;
@@ -9,128 +10,92 @@ interface ImageSliderItemProps {
   priority: boolean;
 }
 
-interface ItemImageProps {
-  imageSrc: string;
-  imageAspectRatio: number;
-  displayClass?: string;
-  alt: string;
-  sizes: string;
-  priority: boolean;
-  imageVariantClass: string;
-}
-
 export default function ImageSliderItem({
   variant,
   src,
   alt,
   priority,
 }: ImageSliderItemProps) {
-  const { sizes, aspectRatio } = VARIANT_MAP[variant];
+  const { sizes } = VARIANT_MAP[variant];
   const imageVariantClass = styleVariant({ variant });
 
   const isStringSrc = typeof src === 'string';
-  const isNumberRatio = typeof aspectRatio === 'number';
 
   if (isStringSrc) {
-    const ratio = isNumberRatio ? aspectRatio : aspectRatio.mobile;
+    const ratio = variant === 'hero' ? 5 / 4 : 1 / 1;
+
     return (
-      <ItemImage
-        imageSrc={src}
-        imageAspectRatio={ratio}
+      <ResponsiveImage
+        src={src}
         alt={alt}
         sizes={sizes}
+        aspectRatio={ratio}
         priority={priority}
-        imageVariantClass={imageVariantClass}
+        quality={50}
+        className={imageVariantClass}
       />
     );
   }
 
-  const mobileRatio = isNumberRatio ? aspectRatio : aspectRatio.mobile;
-  const desktopRatio = isNumberRatio ? aspectRatio : aspectRatio.desktop;
+  const common = { alt, sizes, priority };
+
+  const {
+    props: { srcSet: desktopSrcSet },
+  } = getImageProps({
+    ...common,
+    fill: true,
+    src: src.desktop,
+  });
+
+  const { props: mobileProps } = getImageProps({
+    ...common,
+    fill: true,
+    src: src.mobile,
+  });
 
   return (
-    <>
-      <ItemImage
-        imageSrc={src.mobile}
-        imageAspectRatio={mobileRatio}
-        displayClass={css({
-          display: { base: 'block', tablet: 'none' },
-          visibility: { base: 'visible', tablet: 'hidden' },
-        })}
-        alt={alt}
-        sizes={sizes}
-        priority={priority}
-        imageVariantClass={imageVariantClass}
-      />
-      <ItemImage
-        imageSrc={src.desktop}
-        imageAspectRatio={desktopRatio}
-        displayClass={css({
-          display: { base: 'none', tablet: 'block' },
-          visibility: { base: 'hidden', tablet: 'visible' },
-        })}
-        alt={alt}
-        sizes={sizes}
-        priority={priority}
-        imageVariantClass={imageVariantClass}
-      />
-    </>
+    <div className={imageVariantClass}>
+      <picture>
+        <source media="(min-width: 800px)" srcSet={desktopSrcSet} />
+        <img
+          {...mobileProps}
+          alt={alt}
+          fetchPriority={priority ? 'high' : undefined}
+        />
+      </picture>
+    </div>
   );
 }
-
-const ItemImage = ({
-  imageSrc,
-  imageAspectRatio,
-  displayClass,
-  alt,
-  sizes,
-  priority,
-  imageVariantClass,
-}: ItemImageProps) => {
-  return (
-    <ResponsiveImage
-      src={imageSrc}
-      alt={alt}
-      sizes={sizes}
-      aspectRatio={imageAspectRatio}
-      priority={priority}
-      unoptimized={!priority}
-      quality={50}
-      className={cx(imageVariantClass, displayClass)}
-    />
-  );
-};
 
 const VARIANT_MAP: Record<
   ImageSliderVariant,
   {
     sizes: string;
-    aspectRatio: number | { mobile: number; desktop: number };
   }
 > = {
   detail: {
     sizes: '(max-width: 800px) 100vw, 524px',
-    aspectRatio: 1 / 1,
   },
   hero: {
     sizes: '(max-width: 800px) 100vw, (max-width: 1000px) 782px, 982px',
-    aspectRatio: {
-      mobile: 5 / 4,
-      desktop: 5 / 3,
-    },
   },
 };
 
 const styleVariant = cva({
-  base: {
-    position: 'relative',
-  },
   variants: {
     variant: {
       detail: {
         backgroundColor: 'colors.surface.lightGray',
+        aspectRatio: '1/1',
       },
       hero: {
+        position: 'relative',
+        width: 'full',
+        overflow: 'hidden',
+        aspectRatio: {
+          base: '5/4',
+          tablet: '5/3',
+        },
         borderWidth: [, 'xlight'],
         borderColor: [, 'colors.border.alphaOnDarkLight'],
         borderRadius: [, 'xl'],

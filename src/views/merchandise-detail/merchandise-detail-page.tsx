@@ -1,91 +1,64 @@
-import type { MerchandiseDetailResponse } from '@/src/entities/merchandise/detail/model/types';
+import type { MerchandiseDetailData } from '@/src/entities/merchandise/detail/model/types';
 import DescriptionSection from '@/src/widgets/merchandise/detail/description-section';
 import ImageSection from '@/src/widgets/merchandise/detail/image-section';
+import MerchandiseDetailGridTemplateLayout from '@/src/widgets/merchandise/detail/merchandise-detail-grid-template-layout';
 import ModelSection from '@/src/widgets/merchandise/detail/model-section';
 import SellerSection from '@/src/widgets/merchandise/detail/seller-section';
 import TitleSection from '@/src/widgets/merchandise/detail/title-section';
+import TitleSectionMobile from '@/src/widgets/merchandise/detail/title-section-mobile';
 import TransactionSection from '@/src/widgets/merchandise/detail/transaction-section';
-import { css } from '@/styled-system/css';
-import { flex } from '@/styled-system/patterns';
 
-export interface MerchandiseDetailPageProps {
-  merchandiseDetail: MerchandiseDetailResponse;
+interface MerchandiseDetailPageProps {
+  merchandiseDetailData: MerchandiseDetailData;
 }
 
 export default function MerchandiseDetailPage({
-  merchandiseDetail,
+  merchandiseDetailData,
 }: MerchandiseDetailPageProps) {
   return (
-    <div
-      className={css({
-        margin: '0 auto',
-        maxWidth: 'breakpoint-desktop',
-        marginY: '100px',
-        display: ['none', 'block'],
-        visibility: ['hidden', 'visible'],
-      })}
-    >
-      <div
-        className={flex({
-          flexDirection: 'column',
-          paddingX: '32',
-          gap: '64',
-        })}
-      >
-        <div
-          className={flex({
-            flexDirection: [, 'column', 'row'],
-            gap: '32',
-          })}
-        >
-          <ImageSection
-            images={merchandiseDetail.data.postImages}
-            saleStatus={merchandiseDetail.data.saleStatus}
-            modelResponse={merchandiseDetail.data.modelResponse}
-          />
-          <div
-            className={flex({
-              flexDirection: 'column',
-              justifyContent: [, , 'space-between'],
-              flex: 1,
-              minWidth: '380px',
-              gap: [, '24', '0'],
-            })}
-          >
-            <TitleSection merchandiseDetail={merchandiseDetail} />
-            <div
-              className={flex({
-                flexDirection: 'column',
-                gap: '24',
-              })}
-            >
-              <SellerSection
-                profileImageUrl={merchandiseDetail.data.writer.profileImage}
-                nickname={merchandiseDetail.data.writer.nickname}
-              />
-              <ModelSection
-                modelImageUrl={
-                  merchandiseDetail.data.modelResponse.modelImageUrl
-                }
-                brandName={merchandiseDetail.data.modelResponse.brandName}
-                modelName={merchandiseDetail.data.modelResponse.modelName}
-                subCategoryKorName={
-                  merchandiseDetail.data.modelResponse.subCategoryInfos[0]
-                    .subCategoryKorName
-                }
-              />
-            </div>
-          </div>
-        </div>
-        <DescriptionSection description={merchandiseDetail.data.description} />
-        <TransactionSection
-          delivery={merchandiseDetail.data.deliveryAvailable}
-          deliveryInfo={merchandiseDetail.data.deliveryInfoResponse}
-          regions={merchandiseDetail.data.regions}
-          exchange={merchandiseDetail.data.exchangeAvailable}
-          partChange={merchandiseDetail.data.partChange}
+    <MerchandiseDetailGridTemplateLayout
+      imageSection={
+        <ImageSection
+          images={merchandiseDetailData.postImages}
+          saleStatus={merchandiseDetailData.saleStatus}
+          modelResponse={merchandiseDetailData.modelResponse}
         />
-      </div>
-    </div>
+      }
+      titleSection={
+        <TitleSection merchandiseDetailData={merchandiseDetailData} />
+      }
+      titleSectionMobile={
+        <TitleSectionMobile merchandiseDetailData={merchandiseDetailData} />
+      }
+      transactionSection={
+        <TransactionSection
+          delivery={merchandiseDetailData.deliveryAvailable}
+          deliveryInfo={merchandiseDetailData.deliveryInfoResponse}
+          regions={merchandiseDetailData.regions}
+          exchange={merchandiseDetailData.exchangeAvailable}
+          partChange={merchandiseDetailData.partChange}
+        />
+      }
+      modelSection={
+        <ModelSection
+          modelImageUrl={merchandiseDetailData.modelResponse.modelImageUrl}
+          brandName={merchandiseDetailData.modelResponse.brandName}
+          modelName={merchandiseDetailData.modelResponse.modelName}
+          subCategoryKorName={
+            merchandiseDetailData.modelResponse.subCategoryInfos[0]
+              ?.subCategoryKorName || ''
+          }
+        />
+      }
+      descriptionSection={
+        <DescriptionSection description={merchandiseDetailData.description} />
+      }
+      sellerSection={
+        <SellerSection
+          profileImageUrl={merchandiseDetailData.writer.profileImage}
+          nickname={merchandiseDetailData.writer.nickname}
+        />
+      }
+    />
   );
 }

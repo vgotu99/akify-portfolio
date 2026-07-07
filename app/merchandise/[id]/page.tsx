@@ -3,7 +3,6 @@ import { fetchMerchandiseDetail } from '@/src/entities/merchandise/detail/model/
 import { fetchInitialMerchandiseList } from '@/src/entities/merchandise/list/model/apis';
 import { handleMetadataSoft404 } from '@/src/shared/lib/soft-404';
 import { withSoft404 } from '@/src/shared/ui/not-found';
-import MerchandiseDetailMobilePage from '@/src/views/merchandise-detail/merchandise-detail-mobile-page';
 import MerchandiseDetailPage from '@/src/views/merchandise-detail/merchandise-detail-page';
 
 export const revalidate = 1800;
@@ -69,21 +68,22 @@ export const generateMetadata = async (
 async function MerchandiseDetail({ params }: MerchandiseDetailProps) {
   const { id } = await params;
   const merchandiseDetail = await fetchMerchandiseDetail(id);
+  const merchandiseDetailData = merchandiseDetail.data;
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: merchandiseDetail.data.title,
+    name: merchandiseDetailData.title,
     image:
-      merchandiseDetail.data.postImages?.[0] ||
+      merchandiseDetailData.postImages?.[0] ||
       'https://web.akify.io/opengraph-image.jpg',
-    description: merchandiseDetail.data.description,
+    description: merchandiseDetailData.description,
     offers: {
       '@type': 'Offer',
-      price: merchandiseDetail.data.price,
+      price: merchandiseDetailData.price,
       priceCurrency: 'KRW',
       availability:
-        merchandiseDetail.data.saleStatus === 'ON_SALE'
+        merchandiseDetailData.saleStatus === 'ON_SALE'
           ? 'https://schema.org/InStock'
           : 'https://schema.org/OutOfStock',
     },
@@ -95,8 +95,7 @@ async function MerchandiseDetail({ params }: MerchandiseDetailProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <MerchandiseDetailMobilePage merchandiseDetail={merchandiseDetail} />
-      <MerchandiseDetailPage merchandiseDetail={merchandiseDetail} />
+      <MerchandiseDetailPage merchandiseDetailData={merchandiseDetailData} />
     </div>
   );
 }

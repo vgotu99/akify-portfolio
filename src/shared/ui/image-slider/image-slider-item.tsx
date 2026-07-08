@@ -46,12 +46,14 @@ export default function ImageSliderItem({
     ...common,
     fill: true,
     src: src.desktop,
+    fetchPriority: 'high',
   });
 
   const { props: mobileProps } = getImageProps({
     ...common,
     fill: true,
     src: src.mobile,
+    fetchPriority: 'high',
   });
 
   if (priority) {

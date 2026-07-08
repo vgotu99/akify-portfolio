@@ -1,13 +1,31 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import ShowMoreButton from '@/src/entities/merchandise/list/ui/show-more-button';
-import SuspensedInfiniteMerchandiseList, {
-  type MerchandiseInfiniteScrollProps,
-} from '@/src/entities/merchandise/list/ui/suspensed-infinite-merchandise-list';
+import type { MerchandiseInfiniteScrollProps } from '@/src/entities/merchandise/list/ui/suspensed-infinite-merchandise-list';
 import { getCacheKey } from '@/src/shared/lib/ttl-cache';
+import { css } from '@/styled-system/css';
 import { flex } from '@/styled-system/patterns';
+
+const SuspensedInfiniteMerchandiseList = dynamic(
+  () =>
+    import(
+      '@/src/entities/merchandise/list/ui/suspensed-infinite-merchandise-list'
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className={css({
+          gridColumn: '1 / -1',
+          height: '52px',
+        })}
+      />
+    ),
+  },
+);
 
 const showMoreCache = new Map<string, boolean>();
 

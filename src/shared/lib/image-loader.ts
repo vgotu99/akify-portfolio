@@ -14,5 +14,5 @@ export default function imageLoader({ src, width, quality }: ImageLoaderProps) {
     : src;
   const separator = proxiedUrl.includes('?') ? '&' : '?';
 
-  return `${proxiedUrl}${separator}tr=w-${width},q-${quality || 75}`;
+  return `${proxiedUrl}${separator}tr=w-${width},q-${quality || 75},f-avif`;
 }

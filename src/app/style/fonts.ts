@@ -2,7 +2,7 @@ import { Poppins } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const pretendard = localFont({
-  src: '../../shared/assets/fonts/PretendardVariable.woff2',
+  src: '../../shared/assets/fonts/PretendardVariable-subset.woff2',
   display: 'swap',
   variable: '--font-pretendard',
   weight: '45 920',

@@ -60,12 +60,14 @@ export default function ImageSliderItem({
       imageSrcSet: desktopSrcSet,
       imageSizes: sizes,
       media: '(min-width: 800px)',
+      fetchPriority: 'high',
     });
     preload(mobileProps.src, {
       as: 'image',
       imageSrcSet: mobileProps.srcSet,
       imageSizes: mobileProps.sizes,
       media: '(max-width: 799px)',
+      fetchPriority: 'high',
     });
   }
 

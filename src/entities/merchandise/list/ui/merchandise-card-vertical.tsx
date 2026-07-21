@@ -51,7 +51,7 @@ export default function MerchandiseCardVertical({
             alt={merchandise.modelName}
             sizes="(max-width: 454px) calc(50vw - 11px), 216px"
             aspectRatio={3 / 4}
-            quality={25}
+            quality={50}
             draggable={false}
             key={String(merchandise.id)}
             className={styleVariant({ variant: merchandise.saleStatus })}

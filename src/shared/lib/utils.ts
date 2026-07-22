@@ -25,3 +25,7 @@ export const formatSearchTitle = (q: string) => {
 export const hasNextPage = (newPageDataSize: number, pageSize: number) => {
   return newPageDataSize >= pageSize;
 };
+
+export const hasImageCache = (imageUrl: string) => {
+  return performance.getEntriesByName(imageUrl).length > 0;
+};

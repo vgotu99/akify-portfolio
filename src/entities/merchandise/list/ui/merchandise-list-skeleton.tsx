@@ -1,4 +1,4 @@
-import SkeletonMerchandiseCardVertical from '@/src/entities/merchandise/list/ui/merchandise-card-vertical-skeleton';
+import SkeletonMerchandiseCardVertical from '@/src/entities/merchandise/list/ui/merchandise-card-vertical/merchandise-card-vertical-skeleton';
 
 const SKELETON_KEYS = ['skeleton-1', 'skeleton-2', 'skeleton-3', 'skeleton-4'];
 

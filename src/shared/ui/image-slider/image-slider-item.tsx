@@ -32,7 +32,7 @@ export default function ImageSliderItem({
         sizes={sizes}
         aspectRatio={ratio}
         priority={priority}
-        quality={50}
+        quality={40}
         className={imageVariantClass}
       />
     );
@@ -46,12 +46,14 @@ export default function ImageSliderItem({
     ...common,
     fill: true,
     src: src.desktop,
+    quality: 50,
   });
 
   const { props: mobileProps } = getImageProps({
     ...common,
     fill: true,
     src: src.mobile,
+    quality: 50,
   });
 
   if (priority) {

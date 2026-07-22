@@ -25,6 +25,8 @@ export default function ImageSliderController({
   const { emblaRef, currentIndex, isLoaded, scrollNext, scrollPrev, meta } =
     useImageSlider({ variant, length });
 
+  const firstChild = Children.toArray(children)[0];
+
   return (
     <Component
       className={cx(
@@ -40,30 +42,37 @@ export default function ImageSliderController({
         <div
           className={cx(
             flex({}),
-            !isLoaded &&
-              variant === 'hero' &&
-              css({
-                transform: [
-                  'none',
-                  'translateX(calc(50dvw - 392px))',
-                  'translateX(calc(50dvw - 492px))',
-                ],
-              }),
+            styleVariant({
+              containerVariant: isLoaded ? 'loaded' : 'unLoaded',
+            }),
           )}
         >
+          {!isLoaded && (
+            <div
+              className={cx('group', styleVariant({ groupVariant: variant }))}
+            >
+              {firstChild}
+            </div>
+          )}
+
           {Children.map(children, (child, index) => {
             const isFirstIndex = index === 0;
 
             return (
               <div
-                className={cx('group', styleVariant({ variant }))}
+                className={cx(
+                  'group',
+                  styleVariant({
+                    groupVariant: variant,
+                    childrenVariant: isLoaded ? 'loaded' : 'unLoaded',
+                  }),
+                  css({
+                    transition: isFirstIndex
+                      ? 'none'
+                      : 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',
+                  }),
+                )}
                 data-active={index === currentIndex}
-                style={{
-                  opacity: isLoaded || isFirstIndex ? 1 : 0,
-                  transition: isFirstIndex
-                    ? 'none'
-                    : 'opacity 0.5s ease-in-out',
-                }}
               >
                 {child}
               </div>
@@ -95,7 +104,27 @@ export default function ImageSliderController({
 
 const styleVariant = cva({
   variants: {
-    variant: {
+    containerVariant: {
+      loaded: {},
+      unLoaded: {
+        justifyContent: 'center',
+      },
+    },
+    childrenVariant: {
+      loaded: {
+        opacity: 1,
+        position: 'relative',
+        visibility: 'visible',
+        pointerEvents: 'auto',
+      },
+      unLoaded: {
+        opacity: 0,
+        position: 'absolute',
+        visibility: 'hidden',
+        pointerEvents: 'none',
+      },
+    },
+    groupVariant: {
       detail: {
         flex: '0 0 100%',
       },

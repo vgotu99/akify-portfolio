@@ -4,6 +4,7 @@ import { cloneElement, isValidElement } from 'react';
 import { ALL_IMAGE_SIZES } from '@/src/shared/config/image';
 import imageLoader from '@/src/shared/lib/image-loader';
 import type { WithChildren } from '@/src/shared/lib/types';
+import { hasImageCache } from '@/src/shared/lib/utils';
 
 interface ImageSliderItemDetailBgProps {
   src: string;
@@ -19,7 +20,12 @@ export default function ImageSliderItemDetailBg({
     quality: 50,
   });
 
-  if (!isValidElement<{ style?: React.CSSProperties }>(children)) {
+  const hasCachedImage = hasImageCache(thumbnailUrl);
+
+  if (
+    !hasCachedImage ||
+    !isValidElement<{ style?: React.CSSProperties }>(children)
+  ) {
     return <>{children}</>;
   }
 

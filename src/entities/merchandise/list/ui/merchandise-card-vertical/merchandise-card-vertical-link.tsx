@@ -5,6 +5,7 @@ import type { MerchandiseCardVerticalProps } from '@/src/entities/merchandise/li
 import { ALL_IMAGE_SIZES } from '@/src/shared/config/image';
 import imageLoader from '@/src/shared/lib/image-loader';
 import type { WithChildren } from '@/src/shared/lib/types';
+import { hasImageCache } from '@/src/shared/lib/utils';
 import { css, cx } from '@/styled-system/css';
 
 export default function MerchandiseCardVerticalLink({
@@ -18,6 +19,10 @@ export default function MerchandiseCardVerticalLink({
       width,
       quality: 40,
     });
+
+    const hasCachedImage = hasImageCache(preloadUrl);
+
+    if (hasCachedImage) return;
 
     const img = new Image();
     img.src = preloadUrl;

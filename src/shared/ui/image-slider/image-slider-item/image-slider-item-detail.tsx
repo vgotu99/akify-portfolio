@@ -1,13 +1,11 @@
-import type { ImageSliderItemProps } from '@/src/shared/ui/image-slider/image-slider-item';
-import ResponsiveImage from '@/src/shared/ui/responsive-image';
-import { css } from '@/styled-system/css';
+import ImageSliderItemDetailBg from '@/src/shared/ui/image-slider/image-slider-item/image-slider-item-detail-bg';
+import ImageSliderItemDetailUi from '@/src/shared/ui/image-slider/image-slider-item/image-slider-item-detail-ui';
 
-type ImageSliderItemDetailProps = Omit<
-  ImageSliderItemProps,
-  'src' | 'variant'
-> & {
+interface ImageSliderItemDetailProps {
   src: string;
-};
+  alt: string;
+  priority: boolean;
+}
 
 export default function ImageSliderItemDetail({
   src,
@@ -15,16 +13,8 @@ export default function ImageSliderItemDetail({
   priority,
 }: ImageSliderItemDetailProps) {
   return (
-    <ResponsiveImage
-      src={src}
-      alt={alt}
-      sizes="(max-width: 800px) 100vw, 524px"
-      aspectRatio={1 / 1}
-      priority={priority}
-      quality={40}
-      className={css({
-        backgroundColor: 'colors.surface.lightGray',
-      })}
-    />
+    <ImageSliderItemDetailBg src={src}>
+      <ImageSliderItemDetailUi src={src} alt={alt} priority={priority} />
+    </ImageSliderItemDetailBg>
   );
 }

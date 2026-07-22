@@ -25,8 +25,6 @@ export default function ImageSliderController({
   const { emblaRef, currentIndex, isLoaded, scrollNext, scrollPrev, meta } =
     useImageSlider({ variant, length });
 
-  const firstChild = Children.toArray(children)[0];
-
   return (
     <Component
       className={cx(
@@ -47,16 +45,10 @@ export default function ImageSliderController({
             }),
           )}
         >
-          {!isLoaded && (
-            <div
-              className={cx('group', styleVariant({ groupVariant: variant }))}
-            >
-              {firstChild}
-            </div>
-          )}
-
           {Children.map(children, (child, index) => {
             const isFirstIndex = index === 0;
+            const firstChild = isFirstIndex ? child : null;
+            const restChildren = !isFirstIndex ? child : null;
 
             return (
               <div
@@ -64,7 +56,8 @@ export default function ImageSliderController({
                   'group',
                   styleVariant({
                     groupVariant: variant,
-                    childrenVariant: isLoaded ? 'loaded' : 'unLoaded',
+                    childrenVariant:
+                      isFirstIndex || isLoaded ? 'loaded' : 'unLoaded',
                   }),
                   css({
                     transition: isFirstIndex
@@ -74,7 +67,8 @@ export default function ImageSliderController({
                 )}
                 data-active={index === currentIndex}
               >
-                {child}
+                {firstChild}
+                {isLoaded && restChildren}
               </div>
             );
           })}

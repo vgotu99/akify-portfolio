@@ -27,12 +27,7 @@ export default function ImageSliderList({
     return (
       <div key={imageKey} className={cx('group', styleVariant({ variant }))}>
         <LinkComponent href={href ?? ''}>
-          <ImageSliderItem
-            variant={variant}
-            src={src}
-            alt={alt}
-            priority={index === 0}
-          />
+          <ImageSliderItem src={src} alt={alt} priority={index === 0} />
           {!isVariantDetail && (
             <ImageSliderInfo title={title} subtitle={subtitle} />
           )}

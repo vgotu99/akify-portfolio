@@ -25,7 +25,7 @@ export default function ExploreSection({
   const searchTitle = isVariantSearch && q ? q : '';
   const title = isVariantSearch ? searchTitle : 'Explore';
   const subtitle = !isVariantSearch ? '다양한 악기 매물을 확인해보세요!' : '';
-  const initialPageSize = isVariantSearch ? 16 : 32;
+  const initialPageSize = 16;
   const hasNext = hasNextPage(merchandiseListPosts.length, initialPageSize);
   const hasNoResult = merchandiseListPosts.length === 0;
 

@@ -15,15 +15,13 @@ const fetchMerchandiseList = async (page: number, size: number) => {
 };
 
 export const fetchInitialMerchandiseList = async () => {
-  const res = await fetchMerchandiseList(0, 32);
+  const res = await fetchMerchandiseList(0, 16);
 
   return res;
 };
 
 export const fetchInfiniteMerchandiseList = async (page: number) => {
-  const currentPage = page + 1;
-
-  const res = await fetchMerchandiseList(currentPage, 16);
+  const res = await fetchMerchandiseList(page, 16);
 
   return res;
 };

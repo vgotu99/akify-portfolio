@@ -1,16 +1,10 @@
 import type { BannerListResponse } from '@/src/entities/banner/model/types';
-import { fetchInitialMerchandiseList } from '@/src/entities/merchandise/list/model/apis';
 import MainPage from '@/src/views/main/main-page';
 
-export default async function Main() {
-  const merchandiseList = await fetchInitialMerchandiseList();
+export default function Main() {
   const bannerList = BANNER_MOCK;
-  // const [merchandiseList, bannerList] = await Promise.all([
-  //   fetchInitialMerchandiseList(),
-  //   fetchBannerList(),
-  // ]);
 
-  return <MainPage merchandiseList={merchandiseList} bannerList={bannerList} />;
+  return <MainPage bannerList={bannerList} />;
 }
 
 const BANNER_MOCK: BannerListResponse = {

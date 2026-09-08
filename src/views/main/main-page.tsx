@@ -1,19 +1,15 @@
+import { Suspense } from 'react';
 import type { BannerListResponse } from '@/src/entities/banner/model/types';
-import { fetchMoreMerchandiseAction } from '@/src/entities/merchandise/list/model/actions';
-import type { MerchandiseListResponse } from '@/src/entities/merchandise/list/model/types';
-import ExploreSection from '@/src/widgets/merchandise/list/explore-section';
+import { AsyncExploreSection } from '@/src/widgets/merchandise/list/async-explore-section';
+import ExploreSectionSkeleton from '@/src/widgets/merchandise/list/explore-section-skeleton';
 import HeroSection from '@/src/widgets/merchandise/list/hero-section';
 import { css } from '@/styled-system/css';
 
 interface MainPageProps {
-  merchandiseList: MerchandiseListResponse;
   bannerList: BannerListResponse;
 }
 
-export default function MainPage({
-  merchandiseList,
-  bannerList,
-}: MainPageProps) {
+export default function MainPage({ bannerList }: MainPageProps) {
   return (
     <div
       className={css({
@@ -21,14 +17,9 @@ export default function MainPage({
       })}
     >
       <HeroSection bannerListData={bannerList.data} />
-      <ExploreSection
-        variant="main"
-        merchandiseListPosts={merchandiseList.data.posts}
-        infiniteScroll={{
-          fetcher: fetchMoreMerchandiseAction,
-          cacheKeyPrefix: 'merchandise',
-        }}
-      />
+      <Suspense fallback={<ExploreSectionSkeleton variant="main" />}>
+        <AsyncExploreSection />
+      </Suspense>
     </div>
   );
 }
